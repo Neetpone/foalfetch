@@ -39,7 +39,7 @@ module SearchHelper
     end
   end
 
-  def character_tag(t)
+  def character_display(t)
     tag.div class: 'ftag', title: t.name do
       t.name
     end
