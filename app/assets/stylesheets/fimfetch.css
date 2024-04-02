@@ -708,13 +708,13 @@ a.submit2.cancel:active {
 .ftag.romance:hover {
     background-color: #83e;
 }
-.ftag.rnd {
+.ftag.random {
     background-color: #37c;
     box-shadow: 0 1px 0 #59f inset;
     text-shadow: 0 0 3px #15a;
     border: 1px solid #15a;
 }
-.ftag.rnd:hover {
+.ftag.random:hover {
     background-color: #26b;
 }
 .ftag.comedy {
@@ -762,13 +762,13 @@ a.submit2.cancel:active {
 .ftag.dark:hover {
     background-color: #a22;
 }
-.ftag.alt {
+.ftag.alternate-universe {
     background-color: #888;
     box-shadow: 0 1px 0 #aaa inset;
     text-shadow: 0 0 3px #666;
     border: 1px solid #666;
 }
-.ftag.alt:hover {
+.ftag.alternate-universe:hover {
     background-color: #777;
 }
 .ftag.crs {
@@ -780,13 +780,13 @@ a.submit2.cancel:active {
 .ftag.crs:hover {
     background-color: #298;
 }
-.ftag.hum {
+.ftag.human {
     background-color: #b85;
     box-shadow: 0 1px 0 #da7 inset;
     text-shadow: 0 0 3px #963;
     border: 1px solid #963;
 }
-.ftag.hum:hover {
+.ftag.human:hover {
     background-color: #a74;
 }
 .ftag.ath {
@@ -798,13 +798,13 @@ a.submit2.cancel:active {
 .ftag.ath:hover {
     background-color: #a54;
 }
-.ftag.gor {
+.ftag.gore {
     background-color: #722;
     box-shadow: 0 1px 0 #944 inset;
     text-shadow: 0 0 3px #500;
     border: 1px solid #500;
 }
-.ftag.gor:hover {
+.ftag.gore:hover {
     background-color: #611;
 }
 .ftag.sex {

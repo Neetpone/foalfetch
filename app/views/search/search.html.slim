@@ -24,7 +24,7 @@
               br
               span.popular
                 span.stats
-              - if rec.short_description.present?
+              - if rec.short_description
                 p.description= rec.short_description
               - else
                 p.description== rec.description_html
