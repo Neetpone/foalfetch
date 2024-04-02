@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 Elasticsearch::Model.client = Elasticsearch::Client.new(
-  host: 'https://127.0.0.1:9200',
+  host: 'http://127.0.0.1:9200',
   request_timeout: 30
 ) do |f|
   f.ssl[:verify] = false
