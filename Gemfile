@@ -9,6 +9,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem 'slim-rails'
 gem 'kaminari'
+gem 'redcarpet'
 
 gem 'redis'
 

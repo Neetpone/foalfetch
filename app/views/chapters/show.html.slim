@@ -21,9 +21,8 @@ body.story
           - if @chapter.number < @story.chapters.count
             = link_to 'Next Chapter', story_chapter_path(@story, @chapter.number + 1)
       hr
-      == @chapter.body
+      == @rendered_html
 
       span.chapnav.bot
         - if @chapter.number < @story.chapters.count
           = link_to 'Next Chapter', story_chapter_path(@story, @chapter.number + 1)
-

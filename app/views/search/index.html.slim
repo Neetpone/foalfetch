@@ -1,11 +1,11 @@
 .main
   #wrap
     nav.home
-      = link_to "Daily Fictions", "/ficoftheday"
+      /= link_to "Daily Fictions", "/ficoftheday"
       = link_to "News", "/news"
       = link_to "About", "/about"
     section.search.search-l
-      img alt="FoalFetch" src="/img/banner.png"
+      = image_tag '/img/banner.png', alt: 'FoalFetch'
       = form_tag "/search", method: :post
         .searchbox
           = search_field_tag "q", nil, placeholder: 'Search story titles...'
