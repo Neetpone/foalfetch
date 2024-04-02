@@ -3,6 +3,7 @@ class RecountWordsJob < ApplicationJob
     Story.find_each do |story|
       word_count = 0
       story.chapters.each do |chapter|
+        next unless chapter.body
         count = chapter.body.split(' ').size
         chapter.update_columns(
           num_words: count
