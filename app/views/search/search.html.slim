@@ -1,0 +1,58 @@
+.main
+  #wrap
+    section.search.search-s
+      = form_tag '/search', method: :post
+        a.logo href="/"
+          = image_tag '/img/logo_small.png'
+        .searchbox
+          = search_field_tag 'q', @search_params['q'], placeholder: 'Search story titles...'
+        = render partial: 'advanced', locals: { show_button: true }
+
+    - @records.each do |rec|
+      - character_tags = rec.tags.where(type: 'character')
+      - normal_tags = rec.tags.where.not(type: 'character')
+      section.result
+        section.fic-cell
+          header
+            - if rec.cover_image
+              = image_tag '/images?url=' + CGI.escape(rec.cover_image), alt: 'Cover Image'
+            .details
+              h2= link_to rec.title, story_path(rec)
+              span.author
+                ' by
+                = link_to rec.author.name, author_path(rec.author)
+              br
+              span.popular
+                span.stats
+              p.description= rec.short_description
+          footer
+            .rating
+              = rating_display(rec.rating)
+              = status_display(rec.completion_status)
+              - normal_tags.each do |t|
+                = tag_to_html(t)
+            .characters
+              - character_tags.each do |t|
+                = character_display(t)
+            br
+            .ficstats
+              span.chapters
+                = pluralize(rec.chapters.count, 'Chapter') + ','
+                '&nbsp;
+              span.words
+                =<> rec.num_words
+                ' Words:&nbsp;
+              span.time_est
+                ' Estimated
+                => reading_time(rec.num_words)
+                | to read
+            .published
+              ' Published
+              span= rec.date_published
+            .updated
+              ' Last Update
+              span= rec.date_updated
+    .searchnav
+      = paginate(@records, params: { scope: @scope_key })
+      br
+      span.searchtime Found #{@search.total_count} results.

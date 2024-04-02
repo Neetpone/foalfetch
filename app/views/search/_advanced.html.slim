@@ -1,0 +1,127 @@
+label.fake-link.search-adv-link for="show-advanced"
+  | [Toggle Advanced Options]
+input type="checkbox" id="show-advanced" style="display: none;"
+div.search-adv
+  .cols
+    small More options coming soon!
+  .cols
+    .opts
+      b Rating
+      br
+      = label_tag "ratings_everyone"
+        = check_box_tag "ratings[everyone]", 1, @search_params.dig('ratings', 'everyone').present?
+        | Everyone
+      = label_tag "ratings_teen"
+        = check_box_tag "ratings[teen]", 1, @search_params.dig('ratings', 'teen').present?
+        | Teen
+      = label_tag "ratings_mature"
+        = check_box_tag "ratings[mature]", 1, @search_params.dig('ratings', 'mature').present?
+        | Mature
+    .opts
+      b Story State
+      br
+      = label_tag "state_complete"
+        = check_box_tag "state[complete]", 1, @search_params.dig('state', 'complete').present?
+        | Complete
+      = label_tag "state_incomplete"
+        = check_box_tag "state[incomplete]", 1, @search_params.dig('state', 'incomplete').present?
+        | Incomplete
+      = label_tag "state_on_hiatus"
+        = check_box_tag "state[on_hiatus]", 1, @search_params.dig('state', 'on_hiatus').present?
+        | On Hiatus
+      = label_tag "state_cancelled"
+        = check_box_tag "state[cancelled]", 1, @search_params.dig('state', 'cancelled').present?
+        | Cancelled
+    /.opts
+      b Story Age
+      br
+      = label_tag
+        = radio_button_tag 'ac', 'lt', checked: 'checked'
+        | Newer Than
+      = label_tag
+        = radio_button_tag 'ac', 'gt'
+        | Older Than
+      = select_tag :age, options_for_select({ \
+              '30 days' => 30, '90 days' => 90, '180 days' => 180, '1 year' => 365, \
+              '2 years' => 730, '3 years' => 1095, '4 years' => 1460, '5 years' => 1825, \
+              '6 years' => 2190, '7 years' => 2555, '8 years' => 2920, '9 years' => 3285, '10 years' => 3650})
+    /.opts
+      b Removed Stories
+      br
+      = select_tag "removed", options_for_select({'Include' => 1, 'Exclude' => 0, 'Only' => 'o'})
+  .cols
+    /.opts
+      b Likes:
+      br
+      = label_tag
+        = radio_button_tag 'lc', 'gt', checked: 'checked'
+        | More Than
+      = label_tag
+        = radio_button_tag 'lc', 'lt'
+        | Less Than
+      = number_field_tag 'likes'
+    /.opts
+      b Words:
+      br
+      = label_tag
+        = radio_button_tag 'wc', 'gt', checked: 'checked'
+        | More Than
+      = label_tag
+        = radio_button_tag 'wc', 'lt'
+        | Less Than
+      = number_field_tag 'words'
+    .opts
+      b Author:
+      br
+      = text_field_tag :author, @search_params['author']
+  /.cols
+    .opts
+      b FiMFiction Rating:
+      br
+      = label_tag
+        = radio_button_tag 'rc', 'gt', checked: 'checked'
+        | More Than
+      = label_tag
+        = radio_button_tag 'rc', 'lt'
+        | Less Than
+      div.stars-sm
+        = radio_button_tag :stars, 5, true, class: 'star star-5'
+        = label_tag 'star_5', '', class: 'star'
+        = radio_button_tag :stars, 4, true, class: 'star star-4'
+        = label_tag 'star_4', '', class: 'star'
+        = radio_button_tag :stars, 3, true, class: 'star star-3'
+        = label_tag 'star_3', '', class: 'star'
+        = radio_button_tag :stars, 2, true, class: 'star star-2'
+        = label_tag 'star_2', '', class: 'star'
+        = radio_button_tag :stars, 1, true, class: 'star star-1'
+        = label_tag 'star_1', '', class: 'star'
+  .cols
+    .opts
+      b Characters
+      br
+      noscript
+        p Please enable JavaScript if you wish to have a more friendly tag searching experience. Otherwise, ignore the dropdown and separate exact tag names by commas in the field.
+      .js-tag-editor
+        .selected-tags
+        = text_field_tag :characters, @search_params['characters']
+        = select_tag :fancy_tags, options_for_select(@character_tags)
+  .cols
+    .opts
+      b Tags
+      br
+      noscript
+        p Please enable JavaScript if you wish to have a more friendly tag searching experience. Otherwise, ignore the dropdown and separate exact tag names by commas in the field.
+      .js-tag-editor
+        .selected-tags
+        = text_field_tag :tags, @search_params['tags']
+        = select_tag :fancy_characters, options_for_select(@other_tags)
+  .cols
+    .opts
+      b Sort By
+      br
+      => select_tag :sf, options_for_select({'Query Relevance' => 'rel', 'Title' => 'title', 'Author' => 'author', \
+              'Publish Date' => 'date_published', 'Updated Date' => 'date_updated', 'Word Count' => 'num_words'}, @search_params['sf'])
+      = select_tag :sd, options_for_select({'High to Low' => 'desc', 'Low to High' => 'asc'}, @search_params['sd'])
+  - if show_button
+    .buttons
+      = submit_tag 'Go Fetch!', name: 'search'

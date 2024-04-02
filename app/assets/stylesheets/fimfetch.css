@@ -1,0 +1,3548 @@
+/* This entire file is just skidded from FiMFetch */
+.library h1 {
+    font: bold 34px "Times New Roman", Times, serif;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0 10px;
+}
+.library > header > div {
+    display: inline-block;
+    padding: 0 40px;
+}
+.library > header {
+    margin-top: 10px;
+}
+.udot {
+    border-image-source: url(/img/dots.svg);
+    border-image-slice: 30%;
+    border-image-repeat: round;
+    border-color: green;
+    border-style: dotted;
+    border-width: 0 0 25px;
+}
+.library .avatar {
+    display: inline-block;
+    border: 1px solid #333;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    max-width: 80px;
+    max-height: 80px;
+    margin: 0 10px;
+    padding: 3px;
+}
+.library .avatar img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.library ul {
+    list-style: none;
+    padding: 0;
+}
+.library li {
+    display: inline-block;
+    min-height: 200px;
+    width: 300px;
+    vertical-align: top;
+    padding: 6px;
+}
+.library li > section {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    min-height: 200px;
+    background-color: #f3f2ed;
+    position: relative;
+}
+.spine header {
+    position: relative;
+    background-color: #585858;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    min-height: 60px;
+    padding: 3px 0;
+}
+.spine header h2 {
+    font-size: 24px;
+    line-height: 26px;
+    color: #fff;
+    text-shadow: 0 0 6px #000, 1px 1px 3px #000, 2px 2px 2px #888;
+    margin: 0 45px 0 75px;
+}
+.spine header .fa {
+    position: absolute;
+    font-size: 20px;
+    height: 26px;
+    color: #e6dede;
+    display: block;
+    background-color: #333;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    padding: 3px 6px;
+}
+.spine header .fa.r {
+    top: 4px;
+    right: 4px;
+}
+.spine header .fa.l {
+    top: 2px;
+    left: 2px;
+    font-size: 50px;
+    height: auto;
+    min-width: 55px;
+}
+.spine header .fa.c {
+    color: #fff;
+    text-shadow: 0 0 1px #000, 1px 1px 4px #000, 1px 1px 6px #888;
+}
+.spine header a:hover {
+    text-decoration: none;
+}
+.spine section {
+    margin-bottom: 25px;
+    padding: 0 6px;
+}
+.spine footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: right;
+    padding: 3px;
+}
+.spine footer * {
+    z-index: 1;
+}
+.spine footer > span:first-of-type {
+    float: left;
+    padding: 5px 0 0 3px;
+}
+.spine footer > span:nth-of-type(2) {
+    float: left;
+    font-size: 85%;
+    padding: 7px 0 0 15px;
+}
+.spine .count {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    text-shadow: 0 0 1px #999, 1px 1px 2px #ccc, 0 0 4px #eee;
+    box-shadow: 0 0 3px #333 inset;
+    padding: 3px 6px;
+}
+.spine footer a,
+.spine footer a:hover {
+    color: #111;
+}
+.newlib {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 10px 5px;
+}
+.shelf-menu {
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 0 5px 10px;
+}
+.shelf-menu > header {
+    border-bottom: 1px solid;
+    font-size: 24px;
+    padding-bottom: 4px;
+    margin: 5px -5px 11px;
+}
+.shelf-menu .line {
+    display: block;
+    font-size: 22px;
+    margin: 3px;
+    padding: 2px 4px;
+}
+.shelf-menu .spine header input[type="text"] {
+    font-size: 22px;
+    padding: 2px 4px;
+}
+.shelf-menu .spine section > label {
+    display: inline-block;
+    width: 100%;
+    overflow: auto;
+    text-align: left;
+    margin: 6px 0;
+}
+.shelf-menu .spine section textarea {
+    width: 100%;
+    min-height: 60px;
+}
+.shelf-menu .toggleable-radio {
+    font-size: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    display: inline-block;
+    background: #e2dddd;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    transition: background 0.2s;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.toggleable-radio input {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+.toggleable-radio label:hover {
+    background: #fff;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.2);
+}
+.toggleable-radio input:checked + label {
+    color: #111;
+    text-shadow: -1px -1px rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+    z-index: 2;
+    border-right: none;
+    border-left: none;
+    background-color: #9a9a9a;
+}
+.toggleable-radio label:first-of-type {
+    border-left: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.toggleable-radio label:last-of-type {
+    border-right: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.toggleable-radio label {
+    width: 110px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    line-height: 32px;
+    height: 32px;
+    color: #333;
+    cursor: pointer;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+.shelf-menu .iconselect .toggleable-radio,
+.shelf-menu .colorselect .toggleable-radio {
+    background: #f9f9f9;
+    max-width: 350px;
+    padding: 2px;
+}
+.iconselect .toggleable-radio label,
+.colorselect .toggleable-radio label {
+    width: 32px;
+    height: 32px;
+    box-shadow: 0 0 1px #000;
+    border-radius: 3px;
+    border: 1px solid rgba(60, 60, 60, 0.2);
+    margin: 3px 2px;
+}
+.iconselect .toggleable-radio input:checked + label,
+.colorselect .toggleable-radio input:checked + label {
+    border: 3px solid #666;
+    border-radius: 5px;
+    box-shadow: 0 0 1px #fff inset;
+}
+.iconselect .toggleable-radio input:checked + label i {
+    top: -2px;
+    position: relative;
+}
+.iconselect .toggleable-radio {
+    max-height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.iconselect i.fa {
+    color: #fff;
+    text-shadow: 0 0 1px #000, 1px 1px 4px #000, 1px 1px 6px #888;
+}
+.iconselect i.fa.pony {
+    color: #000;
+    text-shadow: 1px 1px 4px rgba(208, 208, 208, 0.5);
+}
+.toggleable-radio::-webkit-scrollbar {
+    width: 8px;
+}
+.toggleable-radio::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+}
+.toggleable-radio::-webkit-scrollbar-track {
+    background-color: #eee;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35) inset;
+}
+#status.ok,
+#status.error {
+    display: block;
+    text-align: center;
+    padding: 14px 0 0;
+}
+.shelf-menu .ok,
+.shelf-menu .error {
+    display: block;
+    padding: 2px 0 14px;
+}
+.shelf-menu .submit2,
+.shelf .submit2 {
+    font-size: 16px;
+    background: #bfb;
+    padding: 10px;
+}
+.shelf-menu .submit2:hover,
+.shelf .submit2:hover {
+    background: #7f7;
+}
+.shelf-menu .submit2:active,
+.shelf .submit2:active {
+    background: #4f4;
+}
+a.submit2.cancel {
+    color: #000;
+    background: #faa;
+}
+a.submit2.cancel:hover {
+    color: #000;
+    background: #f55;
+    text-decoration: none;
+}
+a.submit2.cancel:active {
+    background: #f33;
+}
+.delete {
+    display: inline-block;
+    font-weight: 700;
+    line-height: 30px;
+    color: #b11;
+    padding: 2px 0 12px;
+}
+.shelf > header h1 {
+    display: block;
+    font: bold 34px "Times New Roman", Times, serif;
+}
+.shelf > header h2 {
+    font-size: 20px;
+    margin: 0 0 15px;
+}
+.shelf .title i {
+    display: inline-block;
+    float: left;
+    background-color: #333;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    box-shadow: 0 1px 1px 1px #272727;
+    margin: 5px 10px 0 0;
+    padding: 3px 6px;
+}
+.shelf .title > div > div {
+    display: inline-block;
+    float: left;
+    text-align: left;
+}
+.shelf .title .fa {
+    color: #fff;
+    top: 2px;
+    left: 2px;
+    font-size: 50px;
+    height: auto;
+    min-width: 55px;
+    text-shadow: 0 0 1px #000, 1px 1px 4px #000, 1px 1px 6px #888;
+}
+.shelf .stats {
+    display: inline-block;
+    text-align: left;
+}
+.shelf > header {
+    max-width: 650px;
+    margin: 10px auto 0;
+    padding: 0 10px;
+}
+.shelf .shelfpage .result {
+    margin-top: 20px;
+    display: block;
+}
+.shelfpage .fic-cell {
+    box-shadow: none;
+}
+.shelfpage .fic-cell,
+.comment-cell {
+    position: relative;
+    background: #fff;
+}
+.shelfpage .fic-cell:before,
+.comment-cell:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    box-shadow: 5px 5px #ccc;
+}
+.comment-cell {
+    border: 1px solid #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.3em;
+    text-align: left;
+    margin: -14px 0 15px;
+    padding: 5px 10px;
+}
+.comment-cell .title {
+    font-size: 14px;
+    width: 95%;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 8px;
+    display: block;
+    text-align: left;
+    padding: 0 5px;
+}
+.review {
+    display: block;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.comment-cell p {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.comment-cell p.double {
+    margin-top: 1.5em;
+}
+.comment-cell a.submit2 {
+    font-size: 14px;
+    margin: 6px 4px 2px;
+    padding: 2px 10px;
+}
+.comment-cell textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 140px;
+}
+.shelfpage {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 0 15px 0 10px;
+}
+.shelf .result.user {
+    position: relative;
+    padding-bottom: 18px;
+    margin-top: 14px;
+}
+.revedit,
+.ordedit {
+    position: absolute;
+    font-size: 12px;
+}
+.revedit {
+    bottom: 5px;
+    left: 10px;
+}
+.ordedit {
+    bottom: 0;
+    right: 2px;
+}
+.ordedit input {
+    max-width: 60px;
+}
+.ordedit .submit2 {
+    margin-left: 2px;
+    font-size: 12px;
+    padding: 2px 4px 2px 2px;
+}
+.fic-cell {
+    text-align: left;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: 5px 5px #ccc;
+    font-size: 17px;
+    line-height: 22px;
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    margin: 0 0 10px;
+    padding: 5px 10px;
+}
+.fic-cell a,
+.fic-cell a:visited {
+    color: #66f;
+    text-decoration: none;
+}
+.fic-cell a:hover {
+    color: #282;
+    text-decoration: underline;
+}
+.fic-cell header img {
+    display: block;
+    float: left;
+    max-height: 150px;
+    max-width: 150px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin: 0 15px 5px 0;
+    padding: 1px;
+}
+.fic-cell h1,
+.fic-cell h2 {
+    font-size: 26px;
+    line-height: 30px;
+    display: inline-block;
+    color: #366;
+    margin: 0;
+}
+.fic-cell .details h2 {
+    display: inline;
+}
+.fic-cell header a,
+.fic-cell header a:visited {
+    color: #366;
+    text-decoration: none;
+}
+.fic-cell header a:hover {
+    color: #366;
+    text-decoration: underline;
+}
+.fic-cell .author {
+    color: #666;
+    display: inline-block;
+    margin: 0 0 0 5px;
+}
+.fic-cell .popular {
+    display: block;
+    float: left;
+    overflow: hidden;
+    padding: 5px 10px;
+}
+.fic-cell .description {
+    overflow: hidden;
+    border: solid #adc 1px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px 0 0;
+    padding: 4px 12px 5px;
+}
+.fic-cell br {
+    line-height: 0;
+}
+.rating,
+.characters,
+.rating *,
+.characters * {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 2px;
+}
+.frating,
+.fstatus,
+.ftag {
+    font-size: 12px;
+    line-height: 16px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    color: #000;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: default;
+    text-align: center;
+    padding: 3px 8px;
+}
+.frating {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+.frating.ev {
+    background: #3a3;
+    box-shadow: 0 1px 0 #292 inset;
+}
+.frating.ev:hover {
+    background: #4b4;
+}
+.frating.tn {
+    background: #ca0;
+    box-shadow: 0 1px 0 #b90 inset;
+}
+.frating.tn:hover {
+    background: #db1;
+}
+.frating.ma {
+    background: #b57;
+    box-shadow: 0 1px 0 #a46 inset;
+}
+.frating.ma:hover {
+    background: #c68;
+}
+.frating.ya {
+    background: #b73;
+    box-shadow: 0 1px 0 #a62 inset;
+}
+.frating.ya:hover {
+    background: #c84;
+}
+.frating.ad {
+    background: #88f;
+    box-shadow: 0 1px 0 #77e inset;
+}
+.frating.ad:hover {
+    background: #99f;
+}
+.frating.cl {
+    background: #d33;
+    box-shadow: 0 1px 0 #b11 inset;
+}
+.frating.cl:hover {
+    background: #e44;
+}
+.frating.cl2 {
+    background: #f66;
+    box-shadow: 0 1px 0 #d44 inset;
+}
+.frating.cl2:hover {
+    background: #f77;
+}
+.frating.db {
+    background: #ea7;
+    box-shadow: 0 1px 0 #d96 inset;
+}
+.frating.db:hover {
+    background: #fb8;
+}
+.frating.old {
+    font-size: 11px;
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+.fstatus {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.fstatus:before {
+    color: #000;
+    width: 16px;
+    margin-right: 5px;
+    font-family: FontAwesome, "Trebuchet MS", Helvetica, sans-serif;
+}
+.fstatus.sc {
+    background: #5a5;
+    box-shadow: 0 1px 0 #494 inset;
+}
+.fstatus.sc:before {
+    content: "\f00c";
+}
+.fstatus.sc:hover {
+    background: #6b6;
+}
+.fstatus.si {
+    background: #fa1;
+    box-shadow: 0 1px 0 #fd0 inset;
+}
+.fstatus.si:before {
+    content: "\f040";
+}
+.fstatus.si:hover {
+    background: #fc0;
+}
+.fstatus.sh {
+    background: #b74;
+}
+.fstatus.sh:before {
+    content: "\f04c";
+}
+.fstatus.sh:hover {
+    background: #c85;
+}
+.fstatus.sn {
+    background: #b33;
+}
+.fstatus.sn:before {
+    content: "\f05e";
+}
+.fstatus.sn:hover {
+    background: #c44;
+}
+.ftag {
+    color: #fff;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+    letter-spacing: 1px;
+}
+.ftag.adv {
+    background-color: #394;
+    box-shadow: 0 1px 0 #5b6 inset;
+    text-shadow: 0 0 3px #172;
+    border: 1px solid #172;
+}
+.ftag.adv:hover {
+    background-color: #283;
+}
+.ftag.rom {
+    background-color: #94f;
+    box-shadow: 0 1px 0 #b6f inset;
+    text-shadow: 0 0 3px #72d;
+    border: 1px solid #72d;
+}
+.ftag.rom:hover {
+    background-color: #83e;
+}
+.ftag.rnd {
+    background-color: #37c;
+    box-shadow: 0 1px 0 #59f inset;
+    text-shadow: 0 0 3px #15a;
+    border: 1px solid #15a;
+}
+.ftag.rnd:hover {
+    background-color: #26b;
+}
+.ftag.com {
+    background-color: #ca2;
+    box-shadow: 0 1px 0 #ec4 inset;
+    text-shadow: 0 0 3px #a80;
+    border: 1px solid #a80;
+}
+.ftag.com:hover {
+    background-color: #b91;
+}
+.ftag.lif {
+    background-color: #48f;
+    box-shadow: 0 1px 0 #6af inset;
+    text-shadow: 0 0 3px #26d;
+    border: 1px solid #26d;
+}
+.ftag.lif:hover {
+    background-color: #37e;
+}
+.ftag.trg {
+    background-color: #fb4;
+    box-shadow: 0 1px 0 #fd6 inset;
+    text-shadow: 0 0 3px #d92;
+    border: 1px solid #d92;
+}
+.ftag.trg:hover {
+    background-color: #ea3;
+}
+.ftag.sad {
+    background-color: #949;
+    box-shadow: 0 1px 0 #b6b inset;
+    text-shadow: 0 0 3px #727;
+    border: 1px solid #727;
+}
+.ftag.sad:hover {
+    background-color: #838;
+}
+.ftag.drk {
+    background-color: #b33;
+    box-shadow: 0 1px 0 #d55 inset;
+    text-shadow: 0 0 3px #911;
+    border: 1px solid #911;
+}
+.ftag.drk:hover {
+    background-color: #a22;
+}
+.ftag.alt {
+    background-color: #888;
+    box-shadow: 0 1px 0 #aaa inset;
+    text-shadow: 0 0 3px #666;
+    border: 1px solid #666;
+}
+.ftag.alt:hover {
+    background-color: #777;
+}
+.ftag.crs {
+    background-color: #3a9;
+    box-shadow: 0 1px 0 #5cb inset;
+    text-shadow: 0 0 3px #187;
+    border: 1px solid #187;
+}
+.ftag.crs:hover {
+    background-color: #298;
+}
+.ftag.hum {
+    background-color: #b85;
+    box-shadow: 0 1px 0 #da7 inset;
+    text-shadow: 0 0 3px #963;
+    border: 1px solid #963;
+}
+.ftag.hum:hover {
+    background-color: #a74;
+}
+.ftag.ath {
+    background-color: #b65;
+    box-shadow: 0 1px 0 #d87 inset;
+    text-shadow: 0 0 3px #943;
+    border: 1px solid #943;
+}
+.ftag.ath:hover {
+    background-color: #a54;
+}
+.ftag.gor {
+    background-color: #722;
+    box-shadow: 0 1px 0 #944 inset;
+    text-shadow: 0 0 3px #500;
+    border: 1px solid #500;
+}
+.ftag.gor:hover {
+    background-color: #611;
+}
+.ftag.sex {
+    background-color: #c49;
+    box-shadow: 0 1px 0 #e6b inset;
+    text-shadow: 0 0 3px #a27;
+    border: 1px solid #a27;
+}
+.ftag.sex:hover {
+    background-color: #b38;
+}
+.ftag.p2 {
+    background-color: #48a;
+    box-shadow: 0 1px 0 #6ac inset;
+    text-shadow: 0 0 3px #268;
+    border: 1px solid #268;
+}
+.ftag.p2:hover {
+    background-color: #59b;
+}
+.ftag.thr {
+    background-color: #c36;
+    box-shadow: 0 1px 0 #e58 inset;
+    text-shadow: 0 0 3px #a14;
+    border: 1px solid #a14;
+}
+.ftag.thr:hover {
+    background-color: #b25;
+}
+.ftag.dra {
+    background-color: #d5d;
+    box-shadow: 0 1px 0 #f7f inset;
+    text-shadow: 0 0 3px #c3b;
+    border: 1px solid #c3b;
+}
+.ftag.dra:hover {
+    background-color: #d4c;
+}
+.ftag.hor {
+    background-color: #622;
+    box-shadow: 0 1px 0 #844 inset;
+    text-shadow: 0 0 3px #400;
+    border: 1px solid #400;
+}
+.ftag.hor:hover {
+    background-color: #511;
+}
+.ftag.eqg {
+    background-color: #538;
+    box-shadow: 0 1px 0 #75a inset;
+    text-shadow: 0 0 3px #316;
+    border: 1px solid #316;
+}
+.ftag.eqg:hover {
+    background-color: #427;
+}
+.ftag.mys {
+    background-color: #444;
+    box-shadow: 0 1px 0 #666 inset;
+    text-shadow: 0 0 3px #222;
+    border: 1px solid #222;
+}
+.ftag.mys:hover {
+    background-color: #333;
+}
+.ftag.sci {
+    background-color: #66a;
+    box-shadow: 0 1px 0 #88c inset;
+    text-shadow: 0 0 3px #448;
+    border: 1px solid #448;
+}
+.ftag.sci:hover {
+    background-color: #559;
+}
+.ftag.pro {
+    background-color: #c62;
+    box-shadow: 0 1px 0 #e84 inset;
+    text-shadow: 0 0 3px #a40;
+    border: 1px solid #a40;
+}
+.ftag.pro:hover {
+    background-color: #b51;
+}
+.ftag.vil {
+    background-color: #d33;
+    box-shadow: 0 1px 0 #f55 inset;
+    text-shadow: 0 0 3px #b11;
+    border: 1px solid #b11;
+}
+.ftag.vil:hover {
+    background-color: #c22;
+}
+.ftag.dth {
+    background-color: #333;
+    box-shadow: 0 1px 0 #555 inset;
+    text-shadow: 0 0 3px #111;
+    border: 1px solid #111;
+}
+.ftag.dth:hover {
+    background-color: #222;
+}
+.ftag.hrm {
+    background-color: #c22;
+    box-shadow: 0 1px 0 #e44 inset;
+    text-shadow: 0 0 3px #a00;
+    border: 1px solid #a00;
+}
+.ftag.hrm:hover {
+    background-color: #b11;
+}
+.character {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    display: inline-block;
+    max-height: 24px;
+}
+.published,
+.updated {
+    color: #888;
+    font: 10pt "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    line-height: 10pt;
+    white-space: pre-wrap;
+}
+.ficstats {
+    display: inline-block;
+    padding: 5px 0;
+}
+span.star-rating {
+    font-size: 13px;
+    line-height: 13px;
+    overflow: auto;
+    margin: 4px 0 0;
+}
+span.star-rating .stars-sm {
+    float: left;
+    margin-right: 4px;
+}
+.stars-txt {
+    display: inline-block;
+    line-height: 23px;
+}
+.stars {
+    width: 190px;
+    display: inline-block;
+}
+.stars-sm {
+    display: inline-block;
+    padding: 1px 0 0 4px;
+}
+label.star {
+    float: right;
+    font-size: 30px;
+    color: #444;
+    transition: all 0.2s;
+    padding: 10px 5px;
+}
+.stars-sm label.star {
+    font-size: 20px;
+    padding: 2px;
+}
+input.star:checked ~ label.star:before {
+    content: "\f005";
+    color: #fd4;
+    transition: all 0.25s;
+}
+input.star-5:checked ~ label.star:before {
+    color: #fe7;
+    text-shadow: 0 0 20px #952;
+}
+.stars-sm input.star-5:checked ~ label.star:before {
+    text-shadow: 0 0 10px #952;
+}
+label.star:hover {
+    transform: rotate(-15deg) scale(1.3);
+}
+label.star:before {
+    content: "\f006";
+    font-family: FontAwesome;
+}
+span.star {
+    float: right;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    position: relative;
+    margin: 2px;
+    padding: 0;
+}
+span.star:before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    font-family: FontAwesome;
+    content: "\f006";
+    color: #444;
+}
+span.star.star-filled:before,
+span.star.star-filled ~ span.star:before,
+span.star.star-half ~ span.star:before {
+    content: "\f005";
+    color: #fd4;
+    text-shadow: 1px 1px 1px #220, 0 0 1px #220;
+}
+span.star.star-half:before {
+    content: "\f005";
+    color: #888;
+    text-shadow: 1px 1px 1px #220, 0 0 1px #220;
+}
+span.star.star-half:after {
+    position: absolute;
+    font-family: FontAwesome;
+    content: "\f005";
+    color: #fd4;
+    width: 40%;
+    overflow: hidden;
+}
+span.star.star-filled.star-5:before,
+span.star.star-filled.star-5 ~ span.star:before {
+    content: "\f005";
+    color: #fe7;
+    text-shadow: 0 0 20px #952;
+}
+.stars-sm span.star.star-filled.star-5:before,
+.stars-sm span.star.star-filled.star-5 ~ span.star:before {
+    text-shadow: 1px 1px 1px #220, 0 0 1px #220, 0 0 5px #f86, 0 0 10px #952;
+}
+.fic-tiles {
+    display: block;
+    text-align: center;
+}
+.fic-tiles .fic-cell {
+    width: 340px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 13px;
+    box-shadow: 2px 2px #ccc;
+    vertical-align: top;
+    margin: 3px;
+    padding: 4px;
+}
+.fic-tiles .fic-cell h1,
+.fic-tiles .fic-cell h2 {
+    font-size: 22px;
+    line-height: 22px;
+    padding: 2px 8px 3px 0;
+}
+.fic-tiles .fic-cell header img {
+    max-height: 90px;
+    max-width: 90px;
+    margin: 0 8px 5px 0;
+}
+.fic-tiles .popular .stats {
+    display: none !important;
+}
+.fic-tiles .fic-cell .popular {
+    line-height: 0;
+    padding: 2px 0;
+}
+.fic-tiles .fic-cell .star-rating {
+    padding: 1px 0 0;
+}
+.fic-tiles span.star {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 16px;
+}
+.fic-tiles .fic-cell .description {
+    margin: 2px 0;
+}
+.fic-tiles .ficsrc,
+.fic-tiles .character {
+    max-height: 20px;
+}
+.fic-tiles .frating,
+.fic-tiles .fstatus,
+.fic-tiles .ftag {
+    font-size: 10px;
+    line-height: 14px;
+    color: transparent;
+    width: 25px;
+    height: 20px;
+    overflow: hidden;
+    padding: 2px 0;
+}
+.fic-tiles .frating:before,
+.fic-tiles .ftag:before,
+.fic-tiles .fstatus:before {
+    color: #000;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
+    font-weight: 700;
+    margin: 0;
+}
+.fic-tiles .frating.ev:before {
+    content: "E";
+}
+.fic-tiles .frating.tn:before {
+    content: "T";
+}
+.fic-tiles .frating.ma:before {
+    content: "M";
+}
+.fic-tiles .frating.ya:before {
+    content: "YA";
+}
+.fic-tiles .frating.ad:before {
+    content: "AD";
+}
+.fic-tiles .frating.cl:before {
+    content: "X";
+}
+.fic-tiles .frating.db:before {
+    content: "?";
+}
+.fic-tiles .ftag.adv:before {
+    content: "Ad";
+}
+.fic-tiles .ftag.rom:before {
+    content: "Ro";
+}
+.fic-tiles .ftag.rnd:before {
+    content: "Ra";
+}
+.fic-tiles .ftag.com:before {
+    content: "Co";
+}
+.fic-tiles .ftag.lif:before {
+    content: "Li";
+}
+.fic-tiles .ftag.trg:before {
+    content: "Tr";
+}
+.fic-tiles .ftag.sad:before {
+    content: "Sa";
+}
+.fic-tiles .ftag.drk:before {
+    content: "Da";
+}
+.fic-tiles .ftag.alt:before {
+    content: "AU";
+}
+.fic-tiles .ftag.crs:before {
+    content: "Cr";
+}
+.fic-tiles .ftag.hum:before {
+    content: "Hu";
+}
+.fic-tiles .ftag.ath:before {
+    content: "An";
+}
+.fic-tiles .ftag.gor:before {
+    content: "Go";
+}
+.fic-tiles .ftag.sex:before {
+    content: "Se";
+}
+.fic-tiles .ftag.p2:before {
+    content: "2p";
+}
+.fic-tiles .ftag.thr:before {
+    content: "Th";
+}
+.fic-tiles .ftag.dra:before {
+    content: "Dr";
+}
+.fic-tiles .ftag.hor:before {
+    content: "Ho";
+}
+.fic-tiles .ftag.eqg:before {
+    content: "Eq";
+}
+.fic-tiles .ftag.mys:before {
+    content: "My";
+}
+.fic-tiles .ftag.sci:before {
+    content: "Sc";
+}
+.fic-tiles .ftag.pro:before {
+    content: "Pf";
+}
+.fic-tiles .ftag.vil:before {
+    content: "Vi";
+}
+.fic-tiles .ftag.dth:before {
+    content: "De";
+}
+.fic-tiles .ftag.hrm:before {
+    content: "Ha";
+}
+.fic-tiles .ficstats {
+    width: 100%;
+    color: #616161;
+    padding: 5px 0 0;
+}
+.fic-tiles .ficstats .chapters {
+    float: left;
+    margin-right: 3px;
+}
+.fic-tiles .readrev {
+    position: absolute;
+    right: 6px;
+    bottom: 3px;
+}
+body > footer {
+    min-height: 165px;
+    background-color: #e9e9e9;
+    color: #777;
+}
+body > footer section {
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+    min-height: 150px;
+    position: relative;
+    padding: 0 10px 10px;
+}
+body > footer section:nth-child(2) {
+    width: 300px;
+}
+body > footer section + section:before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 15px;
+    left: -3px;
+    height: 130px;
+    border-left: 1px solid #bbb;
+}
+body > footer .stat {
+    display: block;
+    font-size: 80%;
+    margin-bottom: 4px;
+}
+body > footer h4 {
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+}
+body > footer .media-links svg {
+    max-height: 40px;
+    max-width: 40px;
+    display: block;
+    float: left;
+    margin: 2px 5px;
+}
+body > footer .media-links {
+    height: 40px;
+}
+body > footer .fb-logo {
+    background-color: #fff;
+}
+body > footer input[type="image"] {
+    margin: 6px 0 0;
+}
+body.fotd .result {
+    display: inline-block;
+    width: 100%;
+    max-width: 700px;
+    padding: 0;
+}
+body.fotd .pagenav {
+    display: inline-block;
+    padding: 0;
+}
+.fotd.sm {
+    max-width: 575px;
+    text-align: center;
+    margin: 90px auto 10px;
+    padding: 0 15px 0 10px;
+}
+.fotd.sm .fic-cell .popular.popsmall {
+    display: block !important;
+    font-size: 14px;
+    line-height: 14px;
+}
+article.fotd {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+    background-color: #fff;
+    padding: 8px 10px;
+}
+article.fotd > header {
+    font: normal 50px / normal Helvetica, sans-serif;
+    color: #0d242d;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9;
+    margin: 0;
+    padding: 0 0 10px;
+}
+article.fotd > footer {
+    width: 90%;
+    border-top: 1px solid #000;
+    border-right: 20px solid #fff;
+    border-left: 20px solid #fff;
+    margin: 10px auto 0;
+    padding: 10px 0;
+}
+article.fotd .fic-cell {
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+.fic-cell .fotd-day {
+    display: block;
+    -webkit-border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-right-radius: 4px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 0 4px #777 inset;
+    font: bold 23px "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin: -5px -10px 10px;
+    padding: 10px 5px;
+}
+.loginbox {
+    position: fixed;
+    z-index: 1001;
+    top: 10%;
+    left: 50%;
+    width: 360px;
+    height: auto;
+    display: block;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border: 1px solid #b4b1b1;
+    visibility: hidden;
+    line-height: 1em;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: opacity 0.5s, top 0.5s;
+    -moz-transition: opacity 0.5s, top 0.5s;
+    -ms-transition: opacity 0.5s, top 0.5s;
+    -o-transition: opacity 0.5s, top 0.5s;
+    transition: opacity 0.5s, top 0.5s;
+    padding: 15px;
+}
+.overlay:target + .loginbox {
+    top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+.overlay {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: default;
+    z-index: 1000;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+.loginbox h1 {
+    font-family: Montserrat, sans-serif;
+    color: #803271;
+    line-height: 1.5em;
+    font-weight: 700;
+    font-size: 190%;
+    margin: 0 0 5px;
+}
+.loginbox .sep {
+    position: relative;
+    border-top: 2px solid #888;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    margin: 15px;
+}
+.loginbox .sep > div {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), #fff, #fff, #fff, rgba(255, 255, 255, 0.1));
+    width: 180px;
+    margin-left: -90px;
+}
+.loginbox .fb-logo {
+    height: 32px;
+    width: 32px;
+    border-radius: 2px;
+    background: #4c69ba;
+    margin: 2px 5px;
+    padding: 4px;
+}
+.loginbox .fb-logo:hover {
+    background: #5b7bd5;
+    cursor: pointer;
+}
+.loginbox .fblogin > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+.loginbox .fbprompt {
+    margin-right: 10px;
+    padding-right: 13px;
+    border-right: 1px solid #888;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+.loginbox .fflogin {
+    padding-top: 10px;
+}
+.loginbox .info {
+    text-align: right;
+    width: 250px;
+    font-size: 13px;
+    margin: 0 auto;
+}
+.loginbox .info input {
+    display: inline-block;
+    width: 160px;
+    border: 1px solid #c0c2c7;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color: #161717;
+    font-style: none;
+    margin-bottom: 12px;
+    background-color: #fff;
+    -moz-box-shadow: inset 0 1px 3px -1px #b4b1b1;
+    -webkit-box-shadow: inset 0 1px 3px -1px #b4b1b1;
+    box-shadow: inset 0 1px 3px -1px #b4b1b1;
+    padding: 6px;
+}
+.loginbox .info input:focus {
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), 0 0 5px 1px #51cbee;
+}
+.fflogin.loginerror .info input {
+    box-shadow: 0 0 6px 1px red, inset 0 0 3px 1px red;
+}
+.lerrbox {
+    border: 1px solid #000;
+    width: 90%;
+    margin: -10px auto 15px;
+    padding: 10px 5px;
+}
+.loginbox .loginbuttons {
+    vertical-align: top;
+}
+.loginbox input.login {
+    border: 1px solid;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+    background: #09f;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 6px 28px;
+}
+.loginbox a.register {
+    color: #666 !important;
+    font: 11pt Verdana, Geneva, sans-serif;
+    display: inline-block;
+    padding: 6px 8px 0;
+}
+.loginremember {
+    height: 25px;
+    line-height: 25px;
+    font-family: LatoRegular;
+    color: #7e7e7e;
+    font-size: 12px;
+    margin-bottom: -8px;
+}
+.alogin a {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    color: #33f;
+    text-decoration: none;
+    font-family: Verdana, Geneva, sans-serif;
+    padding: 10px 10px 15px 15px;
+}
+.alogin a:visited {
+    color: #33f;
+}
+.alogin a:hover {
+    color: #00f;
+    font-weight: 700;
+}
+@font-face {
+    font-family: PonyEmoji;
+    src: url(/fonts/ponyemoji.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+.fa-pony-rd-happy:before {
+    font-family: PonyEmoji;
+    content: "\1f600";
+}
+.fa-pony-ab-beam:before {
+    font-family: PonyEmoji;
+    content: "\1f601";
+}
+.fa-pony-scoots-happy:before {
+    font-family: PonyEmoji;
+    content: "\1f602";
+}
+.fa-pony-twi-happy:before {
+    font-family: PonyEmoji;
+    content: "\1f603";
+}
+.fa-pony-rd-grin:before {
+    font-family: PonyEmoji;
+    content: "\1f604";
+}
+.fa-pony-lyra-unsure:before {
+    font-family: PonyEmoji;
+    content: "\1f605";
+}
+.fa-pony-flutter-yay:before {
+    font-family: PonyEmoji;
+    content: "\1f606";
+}
+.fa-pony-sweetie-angel:before {
+    font-family: PonyEmoji;
+    content: "\1f607";
+}
+.fa-pony-twi-crazy:before {
+    font-family: PonyEmoji;
+    content: "\1f608";
+}
+.fa-pony-flutter-wink:before {
+    font-family: PonyEmoji;
+    content: "\1f609";
+}
+.fa-pony-lyra-happy:before {
+    font-family: PonyEmoji;
+    content: "\1f60a";
+}
+.fa-pony-pinkie-silly:before {
+    font-family: PonyEmoji;
+    content: "\1f60b";
+}
+.fa-pony-rd-beam:before {
+    font-family: PonyEmoji;
+    content: "\1f60c";
+}
+.fa-pony-scoots-love:before {
+    font-family: PonyEmoji;
+    content: "\1f60d";
+}
+.fa-pony-rd-cool:before {
+    font-family: PonyEmoji;
+    content: "\1f60e";
+}
+.fa-pony-twi-smirk:before {
+    font-family: PonyEmoji;
+    content: "\1f60f";
+}
+.fa-pony-flutter-stare:before {
+    font-family: PonyEmoji;
+    content: "\1f610";
+}
+.fa-pony-aj-unsure:before {
+    font-family: PonyEmoji;
+    content: "\1f611";
+}
+.fa-pony-rd-unamused:before {
+    font-family: PonyEmoji;
+    content: "\1f612";
+}
+.fa-pony-ab-unsure:before {
+    font-family: PonyEmoji;
+    content: "\1f613";
+}
+.fa-pony-rd-pensive:before {
+    font-family: PonyEmoji;
+    content: "\1f614";
+}
+.fa-pony-zecora-confused:before {
+    font-family: PonyEmoji;
+    content: "\1f615";
+}
+.fa-pony-aj-disgust:before {
+    font-family: PonyEmoji;
+    content: "\1f616";
+}
+.fa-pony-rd-soawesome:before {
+    font-family: PonyEmoji;
+    content: "\1f617";
+}
+.fa-pony-aj-jewel-kiss:before {
+    font-family: PonyEmoji;
+    content: "\1f618";
+}
+.fa-pony-rd-startled:before {
+    font-family: PonyEmoji;
+    content: "\1f619";
+}
+.fa-pony-aj-pensive:before {
+    font-family: PonyEmoji;
+    content: "\1f61a";
+}
+.fa-pony-fluffles:before {
+    font-family: PonyEmoji;
+    content: "\1f61b";
+}
+.fa-pony-flutter-grin:before {
+    font-family: PonyEmoji;
+    content: "\1f61c";
+}
+.fa-pony-aj-cheer:before {
+    font-family: PonyEmoji;
+    content: "\1f61d";
+}
+.fa-pony-rd-disappointed:before {
+    font-family: PonyEmoji;
+    content: "\1f61e";
+}
+.fa-pony-pinkie-worried:before {
+    font-family: PonyEmoji;
+    content: "\1f61f";
+}
+.fa-pony-rarity-angry:before {
+    font-family: PonyEmoji;
+    content: "\1f620";
+}
+.fa-pony-aj-angry:before {
+    font-family: PonyEmoji;
+    content: "\1f621";
+}
+.fa-pony-ab-sad:before {
+    font-family: PonyEmoji;
+    content: "\1f622";
+}
+.fa-pony-twi-angry:before {
+    font-family: PonyEmoji;
+    content: "\1f623";
+}
+.fa-pony-pinkie-angry:before {
+    font-family: PonyEmoji;
+    content: "\1f624";
+}
+.fa-pony-scoots-sad:before {
+    font-family: PonyEmoji;
+    content: "\1f625";
+}
+.fa-pony-rarity-shocked:before {
+    font-family: PonyEmoji;
+    content: "\1f626";
+}
+.fa-pony-aj-scared:before {
+    font-family: PonyEmoji;
+    content: "\1f627";
+}
+.fa-pony-rarity-scared:before {
+    font-family: PonyEmoji;
+    content: "\1f628";
+}
+.fa-pony-pinkie-cry:before {
+    font-family: PonyEmoji;
+    content: "\1f629";
+}
+.fa-pony-twi-scared:before {
+    font-family: PonyEmoji;
+    content: "\1f62a";
+}
+.fa-pony-flutter-angry:before {
+    font-family: PonyEmoji;
+    content: "\1f62b";
+}
+.fa-pony-aj-shocked:before {
+    font-family: PonyEmoji;
+    content: "\1f62c";
+}
+.fa-pony-flutter-cry:before {
+    font-family: PonyEmoji;
+    content: "\1f62d";
+}
+.fa-pony-rd-shocked:before {
+    font-family: PonyEmoji;
+    content: "\1f62e";
+}
+.fa-pony-twi-unsure:before {
+    font-family: PonyEmoji;
+    content: "\1f62f";
+}
+.fa-pony-ab-scared:before {
+    font-family: PonyEmoji;
+    content: "\1f630";
+}
+.fa-pony-rd-scared:before {
+    font-family: PonyEmoji;
+    content: "\1f631";
+}
+.fa-pony-spike-worried:before {
+    font-family: PonyEmoji;
+    content: "\1f632";
+}
+.fa-pony-flutter-blush:before {
+    font-family: PonyEmoji;
+    content: "\1f633";
+}
+.fa-pony-ab-sleep:before {
+    font-family: PonyEmoji;
+    content: "\1f634";
+}
+.fa-pony-ab-cry:before {
+    font-family: PonyEmoji;
+    content: "\1f635";
+}
+.fa-pony-mac:before {
+    font-family: PonyEmoji;
+    content: "\1f636";
+}
+.fa-pony-mask:before {
+    font-family: PonyEmoji;
+    content: "\1f637";
+}
+.fa-pony-ab-happy:before {
+    font-family: PonyEmoji;
+    content: "\1f638";
+}
+.fa-pony-twi-laugh:before {
+    font-family: PonyEmoji;
+    content: "\1f639";
+}
+.fa-pony-rarity-happy:before {
+    font-family: PonyEmoji;
+    content: "\1f63a";
+}
+.fa-pony-ab-love:before {
+    font-family: PonyEmoji;
+    content: "\1f63b";
+}
+.fa-pony-flutter-wrygrin:before {
+    font-family: PonyEmoji;
+    content: "\1f63c";
+}
+.fa-pony-pinkie-duckface:before {
+    font-family: PonyEmoji;
+    content: "\1f63d";
+}
+.fa-pony-pinkie-glare:before {
+    font-family: PonyEmoji;
+    content: "\1f63e";
+}
+.fa-pony-sweetie-sad:before {
+    font-family: PonyEmoji;
+    content: "\1f63f";
+}
+.fa-pony-twi-sad:before {
+    font-family: PonyEmoji;
+    content: "\1f640";
+}
+.fa-pony-flutter-worried:before {
+    font-family: PonyEmoji;
+    content: "\1f641";
+}
+.fa-pony-pinkie:before {
+    font-family: PonyEmoji;
+    content: "\1f642";
+}
+.fa-pony-pinkie-party:before {
+    font-family: PonyEmoji;
+    content: "\1f644";
+}
+.user {
+    display: inline-block;
+    max-width: 1100px;
+    width: 100%;
+    text-align: left;
+    overflow: visible;
+    margin: 30px 0 10px;
+    padding: 0 15px;
+}
+.user .name h1 {
+    font: bold 34px "Times New Roman", Times, serif;
+    word-break: break-all;
+    display: inline-block;
+    margin: 2px;
+}
+.user .name img {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    float: left;
+    top: 2px;
+    position: relative;
+    margin-right: 5px;
+}
+.user .avatar {
+    position: relative;
+    float: left;
+    border: 1px solid #333;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0 15px 5px 0;
+    padding: 3px;
+}
+.user .avatar:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.user .avatar img {
+    display: block;
+    background-color: #cacaca;
+    max-height: 200px;
+    max-width: 200px;
+    width: 100%;
+    height: 100%;
+}
+.user .avatar img.preview {
+    max-height: none;
+    max-width: none;
+    width: auto !important;
+    height: auto !important;
+    z-index: 1;
+}
+.user .avatar a {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+    transition: opacity 0.4s ease-out, padding 0.4s ease-out;
+    z-index: 99;
+    padding: 1px 5px;
+}
+.user .avatar a:hover {
+    opacity: 1 !important;
+    text-decoration: none;
+    padding: 4px 5px 1px 9px;
+}
+.user .avatar a.change {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    opacity: 0.5;
+}
+.user .avatar a.save {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    visibility: hidden;
+}
+.user .avatar a.save:hover {
+    padding: 4px 9px 1px 5px;
+}
+body.droppable .avatar {
+    border: 5px dashed #add8e6;
+    z-index: 9999;
+}
+.user.patreon .info .name,
+.user.admin .info .name {
+    display: inline-block;
+    position: relative;
+}
+.user.patreon .info .name:after {
+    content: "Patreon Supporter!";
+    line-height: 30px;
+    background: 3px 1px url(/img/patreon-logo.svg) no-repeat;
+    background-size: 30px;
+    display: block;
+    height: 30px;
+    width: min-content;
+    white-space: nowrap;
+    overflow: hidden;
+    top: 2px;
+    right: 4px;
+    z-index: 2;
+    background-color: #ffe971;
+    box-shadow: 0 1px 1px 1px #555;
+    margin: 0 0 5px 3px;
+    padding: 2px 2px 1px 40px;
+}
+.user.admin .info .name:after {
+    content: "Admin";
+    line-height: 30px;
+    background: 3px 1px url(/img/logo-admin.svg) no-repeat;
+    background-size: 30px;
+    display: block;
+    height: 30px;
+    width: min-content;
+    white-space: nowrap;
+    overflow: hidden;
+    top: 2px;
+    right: 4px;
+    z-index: 2;
+    background-color: #ffd578;
+    box-shadow: 0 1px 1px 1px #555;
+    margin: 0 0 5px 3px;
+    padding: 2px 8px 1px 36px;
+}
+.avatar a.rot {
+    position: absolute;
+    top: 2px;
+    visibility: hidden;
+    padding: 5px;
+}
+.user .avatar a.rot:hover {
+    padding: 5px;
+}
+.avatar .rot.rotr {
+    right: 2px;
+}
+.avatar .rot.rotl {
+    left: 2px;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: FlipH;
+}
+.avatar .rot.rotm {
+    left: 50%;
+    margin-left: -30px;
+}
+#profile-loading {
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    z-index: 2;
+}
+.loading {
+    background-color: transparent !important;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+.user header {
+    display: block;
+    overflow: auto;
+}
+.user .bio {
+    overflow: hidden;
+    border: solid #adc 1px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin: 5px 0;
+    padding: 4px 12px 5px;
+}
+.user .info label {
+    color: #666;
+}
+.user .online {
+    color: #2a2;
+}
+.user .online:before {
+    width: 16px;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    font-weight: 700;
+    content: "â—";
+    margin: 0;
+}
+.comment-cell.review-popup {
+    margin: -4px 10px 15px 18px;
+}
+body.main {
+    text-align: left;
+}
+.searchbox {
+    background: #fff;
+    height: 34px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-top-color: #ccc;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    margin: 12px 0;
+}
+.searchbox:hover {
+    border: 1px solid #999;
+}
+.searchboxactive {
+    box-shadow: 0 0 5px #51cbee !important;
+    border: 1px solid #51cbee !important;
+}
+.searchbox input {
+    font-weight: lighter;
+    font-family: arial, sans-serif;
+    font-size: 14pt;
+    width: 98%;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    margin: 0;
+    padding: 5px;
+}
+.search input[type="submit"] {
+    min-width: 150px;
+    background-color: #eee;
+    border: 1px solid #999;
+    color: #333;
+    margin: 10px 5px;
+    padding: 5px;
+}
+.search input[type="submit"]:hover {
+    background: #f3f9e7;
+}
+.search input[type="submit"]:active {
+    background: #badc74;
+}
+.search-adv-link {
+    display: block;
+    font: 10pt Verdana, Geneva, sans-serif;
+    margin: 8px 5px;
+}
+.search-adv-link.active a {
+    background-color: #ff8;
+    padding: 0 4px;
+}
+.search-adv-link.active.expanded a {
+    background-color: transparent;
+}
+.search-adv-link a,
+.search-adv-link a:visited {
+    font-size: 9pt;
+    line-height: 12pt;
+    color: #33f;
+}
+.search-adv-link a:hover {
+    color: #009;
+}
+.search-adv-link.expanded {
+    font-size: 12pt;
+    font-weight: 700;
+    margin: 8px 5px 2px;
+}
+.search-adv-link.expanded a,
+.search-adv-link.expanded a:visited {
+    font-size: 12pt;
+    color: #000;
+    text-decoration: none;
+}
+.search-adv {
+    max-width: 600px;
+    border: 1px #333 solid;
+    margin: 0 0 10px;
+    padding: 5px;
+}
+.search-adv div.opt {
+    text-align: left;
+    float: left;
+    min-height: 168px;
+    padding: 2px 4px;
+}
+.search-adv div.opt2 {
+    min-height: 90px;
+}
+.search-adv div.opt > div {
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+    min-height: 0;
+}
+.search-adv div.opt div:last-of-type {
+    min-height: 0;
+    margin-bottom: 0;
+}
+.search-adv div.opt.full {
+    float: none;
+    width: 100%;
+    clear: both;
+    min-height: 0;
+}
+.search-adv div.opt.bottom {
+    min-height: 0;
+}
+.search-adv div.opt b {
+    display: inline-block;
+    padding-top: 3px;
+    margin-left: -2px;
+    text-shadow: 0 0 4px #ccc;
+    font-variant: small-caps;
+    font-family: sans-serif;
+}
+.search-adv input[type="number"],
+.search-adv .number {
+    max-width: 100px;
+    margin: 0 3px;
+}
+.search-adv div.opt input[type="text"],
+.search-adv div.opt input[type="number"] {
+    line-height: 18px;
+    padding: 0 2px;
+}
+.search-adv a.remove {
+    position: absolute;
+    top: 50%;
+    font-size: 12px;
+    text-decoration: none;
+    font-family: FontAwesome;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    background-clip: padding-box;
+    color: rgba(0, 0, 0, 0.7);
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    margin: -12px 0 0 5px;
+    padding: 0;
+}
+.search-adv a.remove:before {
+    content: "\f00d";
+    line-height: 19px;
+}
+.search-adv .selected-tags > div {
+    position: relative;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    float: left;
+    vertical-align: middle;
+    display: table;
+    cursor: pointer;
+    background: #cf9;
+    margin: 4px 2px;
+    padding: 2px 30px 2px 2px;
+}
+.search-adv img.icon {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    max-height: 24px;
+    margin-bottom: -3px;
+    padding: 0 2px;
+}
+.search-l {
+    text-align: center;
+    min-height: 100px;
+    max-width: 600px;
+    margin: 150px auto 30px;
+}
+.search-s {
+    overflow: auto;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 20px;
+    padding: 0 0 5px;
+}
+.search-s a.logo img {
+    position: absolute;
+    top: 5px;
+    left: 8px;
+}
+.search-s form {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 60px 0 140px;
+}
+.search-s form,
+.search-s .searchbox {
+    display: inline-block;
+    margin: 0;
+}
+.search-s .searchbox {
+    width: 100%;
+    max-width: 350px;
+    margin: 10px 0 0;
+}
+.search-s .searchbox:after {
+    content: "";
+    clear: both;
+}
+.search-s .search-adv {
+    margin: 10px 0 10px -116px;
+}
+.result {
+    max-width: 750px;
+    margin: 10px 0;
+    padding: 0 20px 0 60px;
+}
+.result section {
+    display: inline-block;
+    width: 100%;
+}
+.searchtime {
+    padding: 0 60px 0 0;
+}
+.searchnav {
+    max-width: 750px;
+    text-align: center;
+    margin: 10px 0;
+    padding: 0 0 0 65px;
+}
+.searchnav ul {
+    display: inline-block;
+    max-width: 90%;
+    padding: 0 50px 0 0;
+}
+body.story #wrap {
+    padding-left: 10px;
+    padding-right: 15px;
+}
+.fic-cell.large {
+    display: inline-block;
+    max-width: 950px;
+    margin-top: 20px;
+}
+.story .notice {
+    margin: 15px 0 0;
+}
+.story404 {
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+}
+.story404 > div {
+    background: #500200 0 0 / cover url(/img/destruction_by_adiwan-sm.jpg);
+    min-height: 400px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+}
+.story404 h1 {
+    font-weight: 700;
+    text-shadow: 1px 1px 2px #ff6c6c, 0 0 9px #000, 0 1px 9px #000;
+    font-size: 42px;
+    color: #fafafa;
+    display: inline-block;
+    box-shadow: 0 1px 16px red;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px 20px;
+}
+.story404 h1:after {
+    content: "";
+    display: block;
+}
+.story404 p {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 15px;
+    padding: 15px 25px;
+}
+.desc_short {
+    max-width: 700px;
+    font-size: 90%;
+    color: #333;
+}
+.dl-links {
+    height: 55px;
+    padding: 9px 4px;
+}
+.dl-links > span {
+    font: normal 17px "Times New Roman", serif;
+    display: block;
+    float: left;
+}
+.dl-links a {
+    display: block;
+    float: left;
+    margin-left: 5px;
+}
+.description span.spoiler {
+    background-color: #333;
+    color: #333;
+    text-shadow: none;
+}
+.description span.spoiler:hover {
+    background-color: inherit;
+    color: inherit;
+    text-shadow: inherit;
+}
+.description.full,
+.chapterlist.full {
+    max-height: none !important;
+}
+.fic-cell .chapterlist {
+    overflow: hidden;
+}
+.chapters h3 {
+    font-weight: 700;
+    margin: 0;
+}
+.chapterlist h3 {
+    margin: 18px 0 10px;
+}
+.chapter_title {
+    font: normal 14pt "Trebuchet MS", Helvetica, sans-serif;
+    color: #111;
+}
+.chapterlist a {
+    font-size: 0.8em;
+}
+.chapterlist .date {
+    font-size: 0.7em;
+}
+.chapterlist .word_count {
+    font-size: 0.7em;
+    float: right;
+    right: 10px;
+}
+.fa-plus-square {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    margin-right: 5px;
+}
+.fa-plus-square:before {
+    font: bold 14px FontAwesome;
+    content: "\f0fe";
+}
+.fa-minus-square:before {
+    font: bold 14px FontAwesome;
+    content: "\f146";
+}
+.featured {
+    margin: 0 0 15px;
+}
+.featured > span:first-of-type {
+    font-weight: 700;
+    font-size: 18px;
+}
+.featured a {
+    font: normal 14px Verdana, Geneva, sans-serif;
+    display: block;
+    width: 150px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 8px #ccc;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    margin: 15px 0 0 10px;
+    padding: 4px 12px 5px;
+}
+.featured a:hover {
+    background: #ded;
+}
+.fic-series h3 {
+    font: bold 23px "Times New Roman", Times, serif;
+}
+.fic-series ol {
+    max-width: 940px;
+    display: inline-block;
+    list-style-type: none;
+    margin: 0 15px 10px;
+    padding: 0;
+}
+.fic-series li {
+    counter-increment: series-counter;
+    position: relative;
+    margin-bottom: 10px;
+    padding: 0 0 0 50px;
+}
+.fic-series li:before {
+    content: counter(series-counter);
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    font-size: 16pt;
+    width: 40px;
+    text-align: right;
+    padding: 10px 0;
+}
+.fic-series li.current:before {
+    content: ">";
+}
+.fic-series li.current .fic-cell {
+    box-shadow: 0 0 5px #09a209;
+}
+.fic-series .fic-cell {
+    font-size: 11pt;
+    box-shadow: none;
+    max-width: 100%;
+    margin: 0;
+}
+.fic-series header img {
+    max-height: 120px;
+    max-width: 120px;
+}
+.fic-series .title .name {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18pt;
+}
+.fic-series .tag-adv,
+.fic-series .tag-rom,
+.fic-series .tag-rnd,
+.fic-series .tag-com,
+.fic-series .tag-lif,
+.fic-series .tag-trg,
+.fic-series .tag-sad,
+.fic-series .tag-drk,
+.fic-series .tag-alt,
+.fic-series .tag-crs,
+.fic-series .tag-hum,
+.fic-series .tag-ath,
+.fic-series .tag-gor,
+.fic-series .tag-sex,
+.fic-series .tag-2p,
+.fic-series .tag-thr,
+.fic-series .tag-dra,
+.fic-series .tag-hor,
+.fic-series .tag-eqg,
+.fic-series .tag-mys,
+.fic-series .tag-sci,
+.fic-series .status-c,
+.fic-series .status-i,
+.fic-series .status-h,
+.fic-series .status-n,
+.fic-series .rating-ev,
+.fic-series .rating-tn,
+.fic-series .rating-ma,
+.fic-series .rating-ya,
+.fic-series .rating-ad,
+.fic-series .rating-cl,
+.fic-series .rating-db {
+    font-size: 12px;
+    line-height: 14px;
+    margin: 2px 0;
+    padding: 2px 4px;
+}
+.fic-series .ficsrc {
+    padding: 0 1px;
+}
+.fic-series .fic-cell br {
+    line-height: 24px;
+}
+.rev-tags {
+    overflow: auto;
+    padding: 2px 2px 8px;
+}
+.rev-tags > div {
+    position: relative;
+    height: 28px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    float: left;
+    vertical-align: middle;
+    display: table;
+    background: #cf9;
+    margin: 4px 2px;
+    padding: 2px 30px 2px 2px;
+}
+.rev-tags > div.custom {
+    background: #ff9;
+}
+.rev-tags a.remove {
+    position: absolute;
+    top: 50%;
+    font-size: 12px;
+    text-decoration: none;
+    font-family: FontAwesome;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    background-clip: padding-box;
+    color: rgba(0, 0, 0, 0.7);
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    margin: -10px 0 0 7px;
+    padding: 0;
+}
+.rev-tags a.remove:before {
+    content: "\f00d";
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: 0;
+    margin: -2px 4px 0;
+}
+#report-tags-status.ok,
+#report-tags-status.error {
+    display: block;
+    text-align: left;
+    margin: 4px 0 2px;
+}
+#tag-new {
+    max-width: 100px;
+    margin: 10px 3px 3px;
+    padding: 3px 4px;
+}
+.fic-cell .report-link {
+    font-size: 14px;
+    position: relative;
+}
+.fic-cell .report-form {
+    display: display;
+    position: absolute;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 0 10px 10px 0;
+}
+.fic-cell .report-form .rbox {
+    min-height: 100px;
+    min-width: 400px;
+    background: #fff;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #999;
+    box-shadow: 0 0 2px #aaa;
+    text-align: center;
+    z-index: 5;
+    position: relative;
+    padding: 10px;
+}
+.fic-cell .report-form h3 {
+    text-align: center;
+    font-weight: 700;
+    margin: 2px 5px 5px;
+}
+.report-form a.submit {
+    color: #000;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 8px 5px;
+    padding: 8px 15px;
+}
+a.submit2 {
+    color: #000;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid;
+    font-size: 12px;
+    cursor: pointer;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 0;
+    padding: 0 5px;
+}
+.report-form a.submit:hover,
+a.submit2:hover {
+    color: #000;
+    background: #8f9;
+    text-decoration: none;
+}
+.report-form a.submit:active,
+a.submit2:active {
+    background: #3d4;
+}
+.report-form .cselect {
+    display: inline-block;
+    position: relative;
+    min-width: 160px;
+    background: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #999;
+    box-shadow: 0 1px 1px #ddd;
+    cursor: pointer;
+    outline: none;
+    color: #245;
+    margin: 0 0 4px;
+    padding: 3px 10px;
+}
+.report-form .cselect span:first-of-type {
+    display: block;
+    padding: 2px;
+}
+.report-form .cselect .dropdown {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 12px;
+    background: #fff;
+    border-radius: inherit;
+    border: 1px solid #999;
+    box-shadow: 0 0 5px #eee;
+    font-weight: 400;
+    transition: all 0.2s ease-in;
+    list-style: none;
+    opacity: 0;
+    pointer-events: none;
+    padding: 1px;
+}
+.cselect.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+}
+.report-form .cselect:after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -3px;
+    border-color: #8aa8bd transparent;
+    border-style: solid;
+    border-width: 6px 6px 0;
+}
+.report-form .dropdown:before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 13px;
+    border-color: rgba(0, 0, 0, 0.1) transparent;
+    border-style: solid;
+    border-width: 0 8px 8px;
+}
+.report-form .dropdown:after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 15px;
+    border-color: #fff transparent;
+    border-style: solid;
+    border-width: 0 6px 6px;
+}
+.report-form .dropdown div {
+    float: none;
+    width: 100%;
+    margin: 0;
+}
+.report-form .dropdown li {
+    border-bottom: 1px solid #bbb;
+    transition: all 0.3s ease-out;
+    padding: 5px 7px 2px;
+}
+.report-form .dropdown li:hover {
+    background: #f3f8f8;
+}
+#report-status.ok,
+#report-status.error {
+    display: block;
+    text-align: left;
+    margin: 4px 0 2px;
+}
+.loading.sm {
+    max-height: 40px;
+    max-width: 40px;
+}
+.mystar {
+    display: inline-block;
+    float: left;
+    position: relative;
+    box-shadow: 0 0 2px #059c5d;
+    width: 0;
+    overflow: hidden;
+    margin: 5px 5px 0;
+    padding: 0;
+}
+.mystar > div {
+    position: relative;
+    width: 200px;
+    display: none;
+    top: 0;
+}
+.mystar .ok {
+    color: #0b980b;
+    font-weight: 700;
+    text-align: center;
+    font-size: 30px;
+    padding: 15px 5px 0;
+}
+label.popout.star:hover:before,
+label.popout.star:hover ~ label.star:before {
+    content: "\f005";
+    color: #fd4;
+}
+label.popout.star-5:hover,
+label.popout.star-5:hover ~ label.star:before {
+    content: "\f005";
+    color: #fe4;
+    text-shadow: 0 0 10px #952;
+}
+a.read {
+    color: #000 !important;
+    font-size: 15px;
+    display: inline-block;
+    float: left;
+    background-image: linear-gradient(rgba(17, 153, 0, 0.5), rgba(0, 221, 34, 0.3), rgba(0, 221, 34, 0.3), rgba(17, 153, 0, 0.5)), linear-gradient(90deg, #190, #0d2, #0d2, #0d2, #0d2, #190);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    margin: 5px 0 0;
+    padding: 2px 10px;
+}
+a.read:hover {
+    background-image: linear-gradient(rgba(17, 153, 0, 0.4), rgba(0, 221, 34, 0.2), rgba(0, 221, 34, 0.2), rgba(17, 153, 0, 0.4)), linear-gradient(90deg, #3a3, #3e5, #3e5, #3e5, #3e5, #3a3);
+    text-decoration: none !important;
+    padding: 2px 14px;
+}
+a.read.noanimate {
+    overflow: hidden;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+}
+a.read.remove {
+    margin-left: 10px;
+    background-image: linear-gradient(rgba(153, 50, 50, 0.3), rgba(221, 50, 50, 0.1), rgba(221, 50, 50, 0.1), rgba(153, 50, 50, 0.3)), linear-gradient(90deg, #d00, #d44, #d44, #d44, #d44, #d00);
+}
+a.read.remove:hover {
+    background-image: linear-gradient(rgba(153, 100, 100, 0.5), rgba(221, 100, 100, 0.5), rgba(221, 100, 100, 0.5), rgba(153, 100, 100, 0.5)), linear-gradient(90deg, #f00, #e33, #e33, #e33, #e33, #f00);
+}
+#starsrem a {
+    float: none;
+}
+.ficshelves {
+    display: block;
+    float: left;
+    overflow: hidden;
+    min-width: 260px;
+    text-align: center;
+    margin: 5px 10px;
+}
+.ficshelves > span:first-of-type {
+    display: block;
+    padding-top: 2px;
+    box-shadow: 0 0 1px 1px #4c6d46;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: 1px solid #adadad;
+    margin: 3px;
+}
+.ficshelves .inshelves.none {
+    font-size: 85%;
+}
+.ficshelves ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.ficshelves li {
+    display: inline-block;
+    position: relative;
+    width: 95%;
+    vertical-align: top;
+    box-shadow: inset 0 0 4px 1px rgba(35, 35, 35, 0.17), 1px 1px 1px #6b6b6b;
+    margin: 3px 0;
+    padding: 1px 5px;
+}
+.ficshelves li > span:first-of-type {
+    margin-right: 14px;
+}
+.ficshelves span a:hover {
+    color: #224;
+}
+.ficshelves span a:active {
+    color: #222;
+}
+.ficshelves .rem {
+    position: absolute;
+    top: 0;
+    right: 3px;
+}
+.ficshelves .rem a {
+    color: #532;
+}
+.ficshelves select {
+    font-size: 14px;
+    margin-top: 5px;
+}
+.removed.dcma {
+    border: red solid;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    padding: 35px 20px;
+}
+.removed {
+    border: red solid;
+    display: inline-block;
+    margin-bottom: 8px;
+    background: #fff;
+    color: #c00;
+    box-shadow: 0 0 8px red inset;
+    text-shadow: 0 0 9px #fff;
+    font: bold 12pt arial, sans-serif;
+    padding: 8px 14px;
+}
+.fic-data {
+    position: relative;
+    font-family: Georgia, serif;
+    top: 15px;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    max-width: 900px;
+    margin: 10px auto;
+    padding: 5px 20px;
+}
+.fic-data header {
+    position: relative;
+    margin-bottom: 30px;
+}
+.fic-data h1 {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 20px 0;
+}
+.fic-data h2 {
+    margin: 20px 0;
+}
+.fic-data h1:first-of-type,
+.fic-data h2:first-of-type {
+    text-align: center;
+    color: #333;
+}
+.fic-data h1 a,
+.fic-data h1 a:visited,
+.fic-data h2 a,
+.fic-data h2 a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+.fic-data h1 a:hover,
+.fic-data h2 a:hover {
+    text-decoration: underline;
+    color: #009;
+}
+.fic-data ul {
+    font-family: "Times New Roman", Times, serif;
+}
+.fic-data .author {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    margin: -14px 0 0;
+}
+.fic-data header .chapnav {
+    position: absolute;
+    bottom: 3px;
+}
+.fic-data .chapnav.next {
+    right: 5px;
+}
+.fic-data .chapnav.prev {
+    left: 5px;
+}
+.fic-data .chapnav.bot {
+    font-size: 26px;
+    text-align: center;
+    display: block;
+    padding: 14px 0 18px;
+}
+.fic-data .timeremest {
+    display: block;
+    text-align: center;
+    color: #444;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+.fic-data h3 {
+    margin-left: 20px;
+    font: bold 24px "Times New Roman", Times, serif;
+}
+.fic-data ul:first-of-type li {
+    list-style-type: decimal;
+    padding: 3px 0;
+}
+.fic-data p {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+.fic-data .double {
+    margin-top: 1em;
+}
+.fic-data .i {
+    font-style: italic;
+}
+.fic-data img.emoticon {
+    border: 0;
+    height: 1em;
+    margin: 0;
+    padding: 0;
+}
+.fic-data hr {
+    margin-top: 12px;
+}
+.fic-data blockquote {
+    border-left: 5px solid #aaa;
+    background: #eee;
+    margin: 10px;
+    padding: 5px 10px;
+}
+a.back {
+    display: inline-block;
+    margin: 5px;
+    padding: 20px;
+}
+.woverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: default;
+    z-index: 1000;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+.woverlay > iframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.rwarn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(146, 146, 146, 0.46);
+    z-index: 1001;
+}
+.rwarn > div {
+    position: absolute;
+    left: 50%;
+    margin-left: -180px;
+    top: 25%;
+    width: 360px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border: 1px solid #b4b1b1;
+    background-color: #fffeae;
+    padding: 10px 8px;
+}
+.rwarn .title {
+    font-size: 16px;
+    color: #666;
+}
+.rwarn .confirm {
+    display: inline-block;
+    background-color: #43ce43;
+    color: #000;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    border: 1px solid #292;
+    margin: 5px 0 20px;
+    padding: 5px 8px;
+}
+.rwarn .confirm:hover {
+    background-color: #5d5;
+    text-decoration: none;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    background-color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+#wrap {
+    min-height: 100vh;
+    margin: 0 0 -165px;
+    padding: 0 0 220px;
+}
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 400;
+}
+.error {
+    text-align: center;
+    color: #d20e0e;
+    font-weight: 700;
+}
+a,
+a:visited {
+    color: #33f;
+    text-decoration: none;
+}
+a:active,
+a:hover {
+    cursor: pointer;
+    color: #33c;
+    text-decoration: underline;
+}
+a label:hover {
+    cursor: pointer;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+}
+nav.home {
+    color: #778;
+    font: 15px "Trebuchet MS", Helvetica, sans-serif;
+    text-align: center;
+}
+nav.home a.current {
+    font-size: 18px;
+    font-weight: 700;
+}
+nav.home a {
+    display: inline-block;
+    margin: 3px;
+    padding: 3px 5px;
+}
+header.main {
+    text-align: center;
+    padding: 4px;
+}
+header.main img {
+    max-width: 100%;
+    padding: 0 60px;
+}
+img.emoticon {
+    max-height: 27px;
+}
+.more_span {
+    display: none;
+    background-image: url(/img/fo-20.png);
+    background-repeat: repeat-x;
+    position: relative;
+    top: -20px;
+    margin-bottom: -10px;
+    padding: 25px 10px 5px;
+}
+.more_span.less {
+    background-image: none;
+}
+.more_button {
+    display: inline-block;
+    font: normal 14px Verdana, Geneva, sans-serif;
+    background: #555;
+    color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    text-decoration: none;
+    margin: 0;
+    padding: 4px 12px 5px;
+}
+a.more_button:hover,
+.fic-cell a.more_button:active {
+    color: #fff;
+    text-decoration: none;
+    background: #666;
+    text-shadow: 0 0 1px #777;
+    box-shadow: 0 0 3px #000;
+}
+.notice {
+    display: inline-block;
+    background: #dff;
+    color: #3a1;
+    border: #185 solid;
+    box-shadow: 0 0 8px #358 inset;
+    text-shadow: 0 0 9px #fff;
+    font: bold 12pt arial, sans-serif;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0;
+    padding: 8px 20px;
+}
+.notice.error {
+    box-shadow: 0 0 8px #e88 inset;
+    border: #d25555 solid;
+    background: #fdd;
+    color: #a50303;
+}
+.pagenav li {
+    vertical-align: top;
+    zoom: 1;
+    display: inline;
+    padding: 0 10px;
+}
+.pagenav li a,
+.pagenav li a:visited {
+    color: #333;
+    font-size: 130%;
+    font-weight: 700;
+}
+.pagenav li a:hover {
+    color: #666;
+    letter-spacing: 1px;
+}
+img.loading {
+    -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+.usersection {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    text-align: right;
+    z-index: 10;
+    padding: 10px 10px 15px 15px;
+}
+.usermenu {
+    width: 65px;
+    height: 65px;
+    position: relative;
+    text-align: center;
+    background: #fff;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 40px #6b5 inset;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-out;
+    margin: 0 0 0 auto;
+    padding: 5px;
+}
+.usermenu .dropdown {
+    text-align: left;
+    position: absolute;
+    top: 80%;
+    width: 145px;
+    left: -81px;
+    right: 0;
+    background: #fff;
+    -webkit-border-radius: 20px 0 20px 20px;
+    -moz-border-radius: 20px 0 20px 20px;
+    border-radius: 20px 0 20px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-top: none;
+    border-bottom: none;
+    list-style: none;
+    transition: all 0.3s ease-out;
+    max-height: 0;
+    overflow: hidden;
+    margin: 16px 0 0;
+    padding: 0;
+}
+.usermenu .dropdown li {
+    border-bottom: 1px solid #e6e8ea;
+    padding: 10px;
+}
+.usermenu .dropdown li a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease-out;
+    margin: -10px;
+    padding: 10px;
+}
+.usermenu .dropdown li i {
+    margin-right: 5px;
+    color: inherit;
+    vertical-align: middle;
+}
+.usermenu .dropdown li:hover a {
+    color: #57a9d9;
+}
+.usermenu.active {
+    border-radius: 30px 30px 0 0;
+    background: #bdf;
+    box-shadow: none;
+    border-bottom: none;
+}
+.usermenu.active .dropdown {
+    max-height: 400px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+.spine header .fa.c.pony,
+.shelf .title .fa.pony {
+    color: #000;
+    text-shadow: 1px 1px 4px rgba(208, 208, 208, 0.5);
+    font-size: 40px;
+    overflow: hidden;
+    padding: 8px 6px 3px;
+}
+.spine footer a:hover,
+.fic-data ul:first-of-type a,
+.fic-data .b {
+    font-weight: 700;
+}
+.shelf-menu .spine section,
+.chapterlist li {
+    margin-bottom: 10px;
+}
+.iconselect .toggleable-radio label:first-of-type,
+.colorselect .toggleable-radio label:first-of-type,
+.iconselect .toggleable-radio label:last-of-type,
+.colorselect .toggleable-radio label:last-of-type {
+    border-radius: 3px;
+}
+#status.ok,
+#report-tags-status.ok,
+#report-status.ok {
+    color: #2ea93f;
+    font-weight: 700;
+}
+.shelf > header h1,
+.shelf > header h2,
+.chapterlist ol,
+.usersection form {
+    margin: 0;
+}
+.shelf .title,
+body > footer > div,
+body.fotd,
+body.story,
+.mystar .prompt,
+#starsrem,
+.fic-data .c {
+    text-align: center;
+}
+.shelf .title > div,
+.fic-cell .popular span,
+.ficstats span,
+.user .info {
+    display: inline-block;
+}
+.comment-cell p.indented,
+.fic-data .indented {
+    text-indent: 3em;
+}
+.fic-cell a.more_button,
+.fic-tiles .ftag:before {
+    color: #fff;
+}
+.fic-cell header,
+.fic-cell .details,
+.user .name {
+    overflow: auto;
+}
+.fic-cell .description a,
+.fic-data .u {
+    text-decoration: underline;
+}
+.rating,
+.characters,
+#opt-tags {
+    padding: 2px;
+}
+.characters,
+.search-adv input[type="submit"] {
+    float: right;
+}
+.published span,
+.updated span,
+.fic-tiles .frating.cl2,
+.ficshelves span a {
+    color: #000;
+}
+input.star,
+.fic-tiles .published,
+.fic-tiles .updated,
+.fotd.sm .fic-cell .popular,
+.fic-data > header p,
+.fic-data > header img {
+    display: none;
+}
+input.star-1:checked ~ label.star:before,
+span.star.star-filled.star-1,
+label.popout.star-1:hover:before {
+    color: #f62;
+}
+.fic-tiles .ficstats .words,
+.fic-cell .popular .star-rating,
+header,
+section,
+footer,
+aside,
+nav,
+main,
+article,
+figure {
+    display: block;
+}
+.fotd.sm .fic-cell .description,
+.fotd.sm .fic-cell .desc_short,
+.ficblock {
+    clear: both;
+}
+.loginbox a:link,
+.loginbox a:visited,
+nav.home a:link,
+nav.home a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+.loginbox a:hover,
+nav.home a:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+.loginbox input.login:hover,
+.loginbox input.login:active {
+    background: #06f;
+}
+.loginbox a.register:hover,
+.loginremember a:hover {
+    color: #333 !important;
+}
+.search .buttons,
+.fic-cell.large .popular {
+    padding: 5px 0;
+}
+#search-adv:after,
+.search-adv div.opt.full::after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+}
+.selected-tags .excluded,
+.rev-tags .excluded {
+    background: #f99 !important;
+}
+.search-adv .selected-tags > div > span,
+.rev-tags > div > span {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 3px 0 6px;
+}
+.search-l img,
+.story404 *,
+.fic-data img,
+.usermenu img {
+    max-width: 100%;
+}
+.report-form .rem,
+.fic-data .s {
+    text-decoration: line-through;
+}
+.report-form .dropdown li:last-of-type,
+.usermenu .dropdown li:last-of-type {
+    border: none;
+}
+@media (max-width: 600px) {
+    .fic-cell.large .popular {
+        display: block;
+    }
+    .fic-cell .popular.popsmall {
+        display: block !important;
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .fic-cell .details br {
+        line-height: 20px;
+    }
+    article.fotd > header {
+        font-size: 38px;
+    }
+    .user .avatar img {
+        max-height: 130px;
+        max-width: 130px;
+    }
+    .user .avatar .jwc_frame {
+        height: 130px !important;
+        width: 130px !important;
+    }
+    .user .avatar.preview .jwc_frame {
+        height: 200px !important;
+        width: 200px !important;
+    }
+    .user .name h1 {
+        font-size: 28px;
+    }
+    .user .name img {
+        max-height: 28px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+    }
+    .user .info {
+        font-size: 14px;
+    }
+    .search-l {
+        margin-top: 80px;
+        max-width: 90%;
+    }
+    .search-s #logo2 {
+        display: block !important;
+    }
+    .search-s form {
+        padding-left: 100px;
+    }
+    .search-s .search-adv {
+        margin: 10px -50px 10px -90px;
+    }
+    .result {
+        padding: 0 10px 0 5px;
+    }
+    .searchnav ul {
+        padding: 0 10px;
+    }
+    .fic-series .fic-cell {
+        position: relative;
+        top: 30px;
+        margin: 0 0 50px;
+    }
+    .fic-series li:before {
+        text-align: left;
+        padding: 0;
+    }
+    nav.home {
+        padding-right: 45px;
+    }
+    .usermenu {
+        width: 45px;
+        height: 45px;
+    }
+    .usermenu .dropdown {
+        left: -91px;
+    }
+    .fic-cell .description,
+    .user .bio,
+    .fic-cell .desc_short {
+        clear: both;
+    }
+    .fic-cell .popular,
+    .search-s #logo1 {
+        display: none;
+    }
+    .searchnav,
+    .fic-series li {
+        padding: 0;
+    }
+}
+@media (max-width: 450px) {
+    .fic-tiles {
+        padding: 0 10px;
+    }
+    .fic-tiles .fic-cell {
+        width: 100%;
+    }
+    .user .avatar img {
+        max-height: 80px;
+        max-width: 80px;
+    }
+    .user .avatar .jwc_frame {
+        height: 80px !important;
+        width: 80px !important;
+    }
+    .user .avatar.preview .jwc_frame {
+        height: 200px !important;
+        width: 200px !important;
+    }
+    .user .name h1 {
+        font-size: 20px;
+    }
+    .user .name img {
+        max-height: 20px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+    }
+    .fic-cell .report-form .rbox {
+        min-height: 100px;
+        min-width: 200px;
+        width: 100%;
+        font-size: 14px;
+    }
+    .fic-cell .report-form a.submit {
+        font-size: 14px;
+    }
+    .fic-cell .report-form {
+        left: 10px;
+        right: 0;
+    }
+}
+@media (max-width: 800px) {
+    body > footer section {
+        width: 300px;
+        display: block;
+        min-height: 0;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    body > footer section:last-of-type {
+        min-height: 150px;
+    }
+    body > footer section:before {
+        visibility: hidden;
+    }
+    body > footer h4 {
+        margin: 5px 0 10px;
+    }
+}

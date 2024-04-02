@@ -1,0 +1,52 @@
+- content_for :title, @story.title
+div.story
+  div#wrap
+    = render partial: 'layouts/banner'
+    section.fic-cell.large
+      header
+        - if @story.cover_image
+          a
+            = image_tag '/images?url=' + CGI.escape(@story.cover_image), alt: 'Cover Image'
+        div.details
+          h2= @story.title
+          span.author
+            ' by
+            = link_to @story.author.name, author_path(@story.author)
+          div.desc_short
+            = @story.short_description
+          span.popular
+            / likes, etc
+      section.description#desc
+        p
+          == @story.description_html
+      section
+        .rating
+          => rating_display(@story.content_rating)
+          => status_display(@story.completion_status)
+          '&nbsp;
+        .ficstats
+          span.words> #{@story.num_words} words:
+          span.time_est
+            ' Estimated
+            => reading_time(@story.num_words)
+            | to read
+          span.cached
+        .dl-links
+          span Download:
+      .chapterlist
+        h3= pluralize(@chapters.count, 'Chapter') + ':'
+        ol
+          - @chapters.each do |c|
+            li
+              span.chapter_title
+                => link_to c.title, story_chapter_path(@story, c.number)
+              span.date= c.date_published
+              .word_count= c.num_words
+      footer
+        .published
+          ' Published
+          span= @story.date_published
+        .updated
+          ' Last Update
+          span= @story.date_modified
+

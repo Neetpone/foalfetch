@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    - title_ext = yield :title
+    title= title_ext.present? ? "#{title_ext} - FoalFetch" : "FoalFetch - The Uncensored FiM Fiction Archive"
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"
+  body
+    = yield
+    footer
+      div
+        section
+          h4 Stats
+          span.stat Page generated in #{render_time}
+          / span.stat FIXME registered users
+          / span.stat FIXME visitors total
+        section
+          h4 FoalFetch
+          span.stat Frontend designed by DataByte, backend coded by Floorb.
+          span.stat
+            a href="/about" About FoalFetch
+          span.stat.disclaimer
+            ' This site and its contents are not affiliated with Hasbro, Inc or FiMFetch.
+            | My Little Pony: Friendship is Magic and all its characters are trademarks of Hasbro, Inc.
+        section
+          h4 Friends
+          span.stat
+            a href="https://twibooru.org" Twibooru
+          span.stat
+            a href="https://ponepaste.org" PonePaste

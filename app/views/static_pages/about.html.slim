@@ -1,0 +1,25 @@
+- content_for :title, 'About'
+.about
+  #wrap
+    = render partial: 'layouts/banner'
+    nav.home
+      = link_to 'Home', '/'
+      = link_to 'News', '/news'
+      = link_to 'About', '/about', class: 'current'
+    article
+      section
+        h1 About FoalFetch
+        p FoalFetch is a <b>uncensored</b> archive of My Little Pony: Friendship is Magic fan fiction works. Born after
+          DataByte began censoring FiMFetch, the project provides an ever-growing list of features:
+        ul
+          li Archive of active and past works of fiction
+          li Easy-to-use granular search features
+          li Random daily fictions
+          li Multiple downloadable formats
+
+        p And some long-term goals:
+        ul
+          li Scrape multiple fanfiction platforms for MLP:FiM stories
+          li An OPDS browsing service for compatible e-Readers
+
+        p This site has been designed from the ground-up in an attempt to provide the simplest and most streamlined access to all the pony you should ever want - even content the site's operators don't agree with.

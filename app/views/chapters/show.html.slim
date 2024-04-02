@@ -1,0 +1,29 @@
+body.story
+  #wrap
+    header.banner.main
+      = link_to '/'
+        = image_tag '/img/banner.png'
+    article#story.fic-data.hyphenate
+      header
+        h1
+          = link_to @story.title, story_path(@story)
+        span.author
+          ' by
+          = link_to @story.author.name, author_path(@story.author)
+        hr
+        h2= @chapter.title
+        span.chapnav.prev
+          - if @chapter.number == 1
+            = link_to 'Load Full Story', story_chapter_path(@story, 0)
+          - else
+            = link_to 'Previous Chapter', story_chapter_path(@story, @chapter.number - 1)
+        span.chapnav.next
+          - if @chapter.number < @story.chapters.count
+            = link_to 'Next Chapter', story_chapter_path(@story, @chapter.number + 1)
+      hr
+      == @chapter.body
+
+      span.chapnav.bot
+        - if @chapter.number < @story.chapters.count
+          = link_to 'Next Chapter', story_chapter_path(@story, @chapter.number + 1)
+
