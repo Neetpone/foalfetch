@@ -690,22 +690,22 @@ a.submit2.cancel:active {
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
     letter-spacing: 1px;
 }
-.ftag.adv {
+.ftag.adventure {
     background-color: #394;
     box-shadow: 0 1px 0 #5b6 inset;
     text-shadow: 0 0 3px #172;
     border: 1px solid #172;
 }
-.ftag.adv:hover {
+.ftag.adventure:hover {
     background-color: #283;
 }
-.ftag.rom {
+.ftag.romance {
     background-color: #94f;
     box-shadow: 0 1px 0 #b6f inset;
     text-shadow: 0 0 3px #72d;
     border: 1px solid #72d;
 }
-.ftag.rom:hover {
+.ftag.romance:hover {
     background-color: #83e;
 }
 .ftag.rnd {
@@ -717,31 +717,31 @@ a.submit2.cancel:active {
 .ftag.rnd:hover {
     background-color: #26b;
 }
-.ftag.com {
+.ftag.comedy {
     background-color: #ca2;
     box-shadow: 0 1px 0 #ec4 inset;
     text-shadow: 0 0 3px #a80;
     border: 1px solid #a80;
 }
-.ftag.com:hover {
+.ftag.comedy:hover {
     background-color: #b91;
 }
-.ftag.lif {
+.ftag.slice-of-life {
     background-color: #48f;
     box-shadow: 0 1px 0 #6af inset;
     text-shadow: 0 0 3px #26d;
     border: 1px solid #26d;
 }
-.ftag.lif:hover {
+.ftag.slice-of-life:hover {
     background-color: #37e;
 }
-.ftag.trg {
+.ftag.tragedy {
     background-color: #fb4;
     box-shadow: 0 1px 0 #fd6 inset;
     text-shadow: 0 0 3px #d92;
     border: 1px solid #d92;
 }
-.ftag.trg:hover {
+.ftag.tragedy:hover {
     background-color: #ea3;
 }
 .ftag.sad {
@@ -753,13 +753,13 @@ a.submit2.cancel:active {
 .ftag.sad:hover {
     background-color: #838;
 }
-.ftag.drk {
+.ftag.dark {
     background-color: #b33;
     box-shadow: 0 1px 0 #d55 inset;
     text-shadow: 0 0 3px #911;
     border: 1px solid #911;
 }
-.ftag.drk:hover {
+.ftag.dark:hover {
     background-color: #a22;
 }
 .ftag.alt {
@@ -834,40 +834,40 @@ a.submit2.cancel:active {
 .ftag.thr:hover {
     background-color: #b25;
 }
-.ftag.dra {
+.ftag.drama {
     background-color: #d5d;
     box-shadow: 0 1px 0 #f7f inset;
     text-shadow: 0 0 3px #c3b;
     border: 1px solid #c3b;
 }
-.ftag.dra:hover {
+.ftag.drama:hover {
     background-color: #d4c;
 }
-.ftag.hor {
+.ftag.horror {
     background-color: #622;
     box-shadow: 0 1px 0 #844 inset;
     text-shadow: 0 0 3px #400;
     border: 1px solid #400;
 }
-.ftag.hor:hover {
+.ftag.horror:hover {
     background-color: #511;
 }
-.ftag.eqg {
+.ftag.equestria-girls {
     background-color: #538;
     box-shadow: 0 1px 0 #75a inset;
     text-shadow: 0 0 3px #316;
     border: 1px solid #316;
 }
-.ftag.eqg:hover {
+.ftag.equestria-girls:hover {
     background-color: #427;
 }
-.ftag.mys {
+.ftag.mystery {
     background-color: #444;
     box-shadow: 0 1px 0 #666 inset;
     text-shadow: 0 0 3px #222;
     border: 1px solid #222;
 }
-.ftag.mys:hover {
+.ftag.mystery:hover {
     background-color: #333;
 }
 .ftag.sci {

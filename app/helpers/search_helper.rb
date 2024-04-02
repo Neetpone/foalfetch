@@ -34,7 +34,7 @@ module SearchHelper
   end
 
   def tag_to_html(t)
-    tag.div class: 'ftag', title: t.name do
+    tag.div class: "ftag #{t.name.downcase.gsub(' ', '-')}", title: t.name do
       t.name
     end
   end
