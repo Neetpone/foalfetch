@@ -95,12 +95,13 @@ div.search-adv
         = label_tag 'star_2', '', class: 'star'
         = radio_button_tag :stars, 1, true, class: 'star star-1'
         = label_tag 'star_1', '', class: 'star'
+  noscript
+    .cols
+      p Please enable JavaScript if you wish to have a more friendly tag searching experience. Otherwise, use the dropdown as a reference and separate exact tag names by commas in the field. Add a - to negate.
   .cols
     .opts
       b Characters
       br
-      noscript
-        p Please enable JavaScript if you wish to have a more friendly tag searching experience. Otherwise, ignore the dropdown and separate exact tag names by commas in the field.
       .js-tag-editor
         .selected-tags
         = text_field_tag :characters, @search_params['characters']
@@ -109,8 +110,6 @@ div.search-adv
     .opts
       b Tags
       br
-      noscript
-        p Please enable JavaScript if you wish to have a more friendly tag searching experience. Otherwise, ignore the dropdown and separate exact tag names by commas in the field.
       .js-tag-editor
         .selected-tags
         = text_field_tag :tags, @search_params['tags']
