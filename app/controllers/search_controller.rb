@@ -18,31 +18,28 @@ class SearchController < ApplicationController
 
     # This was mainly written this way to match the way FiMFetch's query interface looks, without using JS.
     # I should do a Derpibooru-esque textual search system sometime.
-    @search = Story.fancy_search(per_page:        @per_page,
-                                 page:            @page_num) do |s|
-      s.add_query match: { title: { query: @search_params['q'], operator: 'AND' } } unless @search_params['q'].blank?
-      s.add_query match: { author: { query: @search_params['author'], operator: 'AND' } } if @search_params['author'].present?
+    @search = Story.fancy_search(
+      per_page: @per_page,
+      page:     @page_num
+    ) do |s|
+      s.add_query(match: { title: { query: @search_params['q'], operator: :and } }) if @search_params['q'].present?
+      s.add_query(match: { author: { query: @search_params['author'], operator: :and } }) if @search_params['author'].present?
 
       # ratings -> match stories with any of them
-      s.add_filter bool: {
+      s.add_filter(bool: {
         should: @search_params['ratings'].keys.map { |k| { term: { content_rating: k } } }
-      } unless @search_params['ratings'].blank?
+      }) if @search_params['ratings'].present?
 
       # completeness -> match stories with any of them
-      s.add_filter bool: {
+      s.add_filter(bool: {
         should: @search_params['state'].keys.map { |k| { term: { completion_status: k } } }
-      } unless @search_params['state'].blank?
+      }) if @search_params['state'].present?
 
-      # tags -> match any of the included tags, exclude any of the excluded taags
+      # tags -> match any of the included tags, exclude any of the excluded tags
       tag_musts, tag_must_nots = parse_tag_queries
 
-      s.add_filter terms: {
-        tags: tag_musts
-      } if tag_musts.any?
-
-      s.add_filter bool: {
-        must_not: tag_must_nots.map { |t| { term: { tags: t } } }
-      } if tag_must_nots.any?
+      s.add_filter(terms: { tags: tag_musts }) if tag_musts.any?
+      s.add_filter(bool: { must_not: { terms: { tags: tag_must_nots } } }) if tag_must_nots.any?
 
       # sort direction
       if using_random
@@ -61,6 +58,7 @@ class SearchController < ApplicationController
   end
 
   private
+
   def load_tags
     @character_tags = Tag.where(type: 'character').order(name: :asc).pluck(:name)
     @other_tags = Tag.where.not(type: 'character').order(name: :asc).pluck(:name)
@@ -77,9 +75,14 @@ class SearchController < ApplicationController
     sf = ALLOWED_SORT_FIELDS.detect { |f| @search_params['sf'] == f.to_s } || :date_updated
     sd = ALLOWED_SORT_DIRS.detect { |d| @search_params['sd'] == d.to_s } || :desc
 
+    # we need to sort on the keyword versions of text fields, to avoid using fielddata.
     sf = case sf
          when :rel then
            :_score
+         when :title then
+           :title_keyword
+         when :author then
+           :author_keyword
          else
            sf
          end

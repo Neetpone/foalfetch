@@ -16,7 +16,9 @@ module StoryIndex
         indexes :short_description, type: 'text', analyzer: 'snowball'
         indexes :description_html,  type: 'text', analyzer: 'snowball'
         indexes :title,             type: 'text', analyzer: 'snowball'
+        indexes :title_keyword,     type: 'keyword'
         indexes :author,            type: 'text', analyzer: 'snowball'
+        indexes :author_keyword,    type: 'keyword'
         indexes :tags,              type: 'keyword'
       end
     end
@@ -30,7 +32,9 @@ module StoryIndex
     end
 
     def allowed_search_fields(access_options = {})
-      [:title, :completion_status, :content_rating, :date_published, :date_updated, :date_modified, :num_comments, :num_views, :num_words, :rating, :short_description, :description_html, :title, :tags, :author]
+      [:title, :completion_status, :content_rating, :date_published, :date_updated, :date_modified,
+       :num_comments, :num_views, :num_words, :rating, :short_description, :description_html,
+       :title, :title_keyword, :tags, :author, :author_keyword]
     end
   end
 
@@ -50,8 +54,10 @@ module StoryIndex
       short_description: short_description,
       description_html: description_html,
       title: title,
+      title_keyword: title,
       tags: tags.map(&:name),
-      author: author.name
+      author: author.name,
+      author_keyword: author.name
     }
   end
 
