@@ -26,8 +26,8 @@ div.search-adv
       = label_tag "state_incomplete"
         = check_box_tag "state[incomplete]", 1, @search_params.dig('state', 'incomplete').present?
         | Incomplete
-      = label_tag "state_on_hiatus"
-        = check_box_tag "state[on_hiatus]", 1, @search_params.dig('state', 'on_hiatus').present?
+      = label_tag "state_hiatus"
+        = check_box_tag "state[hiatus]", 1, @search_params.dig('state', 'hiatus').present?
         | On Hiatus
       = label_tag "state_cancelled"
         = check_box_tag "state[cancelled]", 1, @search_params.dig('state', 'cancelled').present?
