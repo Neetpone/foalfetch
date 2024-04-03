@@ -879,40 +879,40 @@ a.submit2.cancel:active {
 .ftag.sci:hover {
     background-color: #559;
 }
-.ftag.pro {
+.ftag.profanity {
     background-color: #c62;
     box-shadow: 0 1px 0 #e84 inset;
     text-shadow: 0 0 3px #a40;
     border: 1px solid #a40;
 }
-.ftag.pro:hover {
+.ftag.profanity:hover {
     background-color: #b51;
 }
-.ftag.vil {
+.ftag.violence {
     background-color: #d33;
     box-shadow: 0 1px 0 #f55 inset;
     text-shadow: 0 0 3px #b11;
     border: 1px solid #b11;
 }
-.ftag.vil:hover {
+.ftag.violence:hover {
     background-color: #c22;
 }
-.ftag.dth {
+.ftag.death {
     background-color: #333;
     box-shadow: 0 1px 0 #555 inset;
     text-shadow: 0 0 3px #111;
     border: 1px solid #111;
 }
-.ftag.dth:hover {
+.ftag.death:hover {
     background-color: #222;
 }
-.ftag.hrm {
+.ftag.self-harm {
     background-color: #c22;
     box-shadow: 0 1px 0 #e44 inset;
     text-shadow: 0 0 3px #a00;
     border: 1px solid #a00;
 }
-.ftag.hrm:hover {
+.ftag.self-harm:hover {
     background-color: #b11;
 }
 .character {
