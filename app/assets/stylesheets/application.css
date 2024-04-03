@@ -49,6 +49,6 @@ input#show-advanced:checked + div {
     padding-left: 12rem;
 }
 
-.rating > div {
-    margin-right: 2px;
+.rating > div, .characters > div {
+    margin-right: 3px;
 }

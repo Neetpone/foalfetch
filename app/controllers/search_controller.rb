@@ -25,6 +25,20 @@ class SearchController < ApplicationController
       s.add_query(match: { title: { query: @search_params['q'], operator: :and } }) if @search_params['q'].present?
       s.add_query(match: { author: { query: @search_params['author'], operator: :and } }) if @search_params['author'].present?
 
+      # tags -> match any of the included tags, exclude any of the excluded tags
+      tag_musts, tag_must_nots = parse_tag_queries
+      boolses = {}
+
+      boolses[:must] = (
+        tag_musts.map { |t| { term: { tags: t } } }
+      ) if tag_musts.any?
+
+      boolses[:must_not] = (
+        tag_must_nots.map { |t| { term: { tags: t } } }
+      ) if tag_must_nots.any?
+
+      s.add_query(bool: boolses ) if boolses.any?
+
       # ratings -> match stories with any of them
       s.add_filter(bool: {
         should: @search_params['ratings'].keys.map { |k| { term: { content_rating: k } } }
@@ -34,12 +48,6 @@ class SearchController < ApplicationController
       s.add_filter(bool: {
         should: @search_params['state'].keys.map { |k| { term: { completion_status: k } } }
       }) if @search_params['state'].present?
-
-      # tags -> match any of the included tags, exclude any of the excluded tags
-      tag_musts, tag_must_nots = parse_tag_queries
-
-      s.add_filter(terms: { tags: tag_musts }) if tag_musts.any?
-      s.add_filter(bool: { must_not: { terms: { tags: tag_must_nots } } }) if tag_must_nots.any?
 
       # sort direction
       if using_random
@@ -68,7 +76,11 @@ class SearchController < ApplicationController
   def parse_tag_queries
     tag_searches = (@search_params['tags'] + ',' + @search_params['characters']).split(',').reject &:blank?
 
-    [tag_searches.select { |t| t[0] != '-' }, tag_searches.select { |t| t[0] == '-' }]
+    [
+      tag_searches.select { |t| t[0] != '-' },
+      tag_searches.select { |t| t[0] == '-' }
+                  .map { |t| t[1..] }
+    ]
   end
 
   def parse_sort
