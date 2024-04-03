@@ -27,7 +27,8 @@
               - if rec.short_description
                 p.description= rec.short_description
               - else
-                p.description== rec.description_html
+                div.description
+                  == rec.description_html
           footer
             .rating
               = rating_display(rec.rating)
