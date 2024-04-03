@@ -33,6 +33,7 @@ end
 group :development do
   gem "web-console"
   gem 'annotate'
+  gem 'bullet'
 end
 
 group :test do

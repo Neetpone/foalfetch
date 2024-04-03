@@ -83,6 +83,9 @@ GEM
     base64 (0.2.0)
     bindex (0.8.1)
     builder (3.2.4)
+    bullet (7.1.6)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     capybara (3.40.0)
       addressable
       matrix
@@ -249,6 +252,7 @@ GEM
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uniform_notifier (1.16.0)
     uri (0.13.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
@@ -268,6 +272,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bullet
   capybara
   debug
   elasticsearch-model
