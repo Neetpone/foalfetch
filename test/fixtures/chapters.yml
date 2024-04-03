@@ -1,4 +1,21 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: chapters
+#
+#  id             :bigint           not null, primary key
+#  body           :text
+#  date_modified  :datetime
+#  date_published :datetime         not null
+#  num_views      :integer          default(0), not null
+#  num_words      :integer
+#  number         :integer          default(1), not null
+#  title          :text             not null
+#  story_id       :bigint           not null
+#
+# Indexes
+#
+#  index_chapters_on_story_id  (story_id)
+#
 
 # This model initially had no columns defined. If you add columns to the
 # model remove the "{}" from the fixture names and add the columns immediately
