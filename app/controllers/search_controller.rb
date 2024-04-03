@@ -62,8 +62,8 @@ class SearchController < ApplicationController
 
   private
   def load_tags
-    @character_tags = Tag.where(type: 'character').pluck(:name)
-    @other_tags = Tag.where.not(type: 'character').pluck(:name)
+    @character_tags = Tag.where(type: 'character').order(name: :asc).pluck(:name)
+    @other_tags = Tag.where.not(type: 'character').order(name: :asc).pluck(:name)
   end
 
   # returns: [included tags, excluded tags]
