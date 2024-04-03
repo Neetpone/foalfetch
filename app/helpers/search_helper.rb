@@ -26,6 +26,10 @@ module SearchHelper
         tag.div class: 'fstatus si', title: 'Incomplete' do
           'Incomplete'
         end
+      when 'hiatus' then
+        tag.div class: 'fstatus sh', title: 'On Hiatus' do
+          'On Hiatus'
+        end
       when 'cancelled' then
         tag.div class: 'fstatus sn', title: 'Cancelled' do
           'Cancelled'
