@@ -571,6 +571,10 @@ a.submit2.cancel:active {
     cursor: default;
     text-align: center;
     padding: 3px 8px;
+    background-color: #888;
+    box-shadow: 0 1px 0 #aaa inset;
+    text-shadow: 0 0 3px #666;
+    border: 1px solid #666;
 }
 .frating {
     border: 1px solid rgba(0, 0, 0, 0.2);
