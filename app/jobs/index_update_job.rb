@@ -4,8 +4,8 @@ class IndexUpdateJob < ApplicationJob
   queue_as :high
   def perform(cls, id)
     obj = cls.constantize.find(id)
-    obj.update_index(defer: false) if obj
-  rescue StandardError => ex
-    Rails.logger.error ex.message
+    obj&.update_index(defer: false)
+  rescue StandardError => e
+    Rails.logger.error e.message
   end
 end

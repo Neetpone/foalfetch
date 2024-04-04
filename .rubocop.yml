@@ -1,0 +1,58 @@
+inherit_from: .rubocop_todo.yml
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+    - db/migrate/*.rb
+    - db/schema.rb
+    - vendor/**/*
+    - public/**/*
+    - tmp/**/*
+    - spec/rails_helper.rb
+    - lib/tasks/auto_annotate_models.rake
+
+Style/FetchEnvVar:
+  Enabled: false
+
+# I just don't like it
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+
+# These next two are stylistic choices I don't agree with
+Style/MultilineIfModifier:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+# It just feels wrong
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
+# This is too convenient not to
+Style/GlobalVars:
+  AllowedVariables:
+    - $redis
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+# Don't like it
+Style/EmptyMethod:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+# This does the oppposite of what I want to do.
+Layout/HashAlignment:
+  Enabled: false
+
+Layout/CaseIndentation:
+  IndentOneStep: true
+
+Style/NumericPredicate:
+  Enabled: false

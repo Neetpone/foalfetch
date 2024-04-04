@@ -2,7 +2,7 @@
 
 ENV['REDIS_HOST'] ||= 'localhost'
 
-#require 'hiredis'
+# require 'hiredis'
 require 'redis'
 
 $redis = Redis.new(host: ENV['REDIS_HOST'])

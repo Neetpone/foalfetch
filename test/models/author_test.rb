@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: authors
@@ -10,7 +11,7 @@
 #  num_blog_posts :integer          default(0), not null
 #  num_followers  :integer          default(0), not null
 #
-require "test_helper"
+require 'test_helper'
 
 class AuthorTest < ActiveSupport::TestCase
   # test "the truth" do

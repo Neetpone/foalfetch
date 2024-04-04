@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'redcarpet'
 
 class ChaptersController < ApplicationController
@@ -17,7 +18,7 @@ class ChaptersController < ApplicationController
 
     # This is fucking bad, this gets rid of the redundant title - this should be fixed upstairs,
     # in the actual generation of the Markdown.
-    if body.length >= 2 && body[0] == @chapter.title && body[1].length > 0 && body[1][0] == '='
+    if body.length >= 2 && body[0] == @chapter.title && !body[1].empty? && body[1][0] == '='
       body = body[2..]
     end
 

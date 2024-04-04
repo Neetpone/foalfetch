@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ApplicationController < ActionController::Base
   before_action :start_timer
   before_action :setup_pagination_and_tags

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module ApplicationHelper
   # https://infusion.media/content-marketing/how-to-calculate-reading-time/
   def reading_time(words)

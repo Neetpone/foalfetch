@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 require 'open-uri'
 
 # Handles proxying images from the FiMFiction CDN and caching them locally, in case they disappear.
 class ImagesController < ApplicationController
-  #noinspection RubyMismatchedArgumentType
+  # noinspection RubyMismatchedArgumentType
   def show
     url = params[:url]
     parsed = URI.parse(url)
@@ -15,16 +16,17 @@ class ImagesController < ApplicationController
     ext = File.extname(url)
     hash = Digest::SHA256.hexdigest(url)
     path = Rails.root.join('public', 'cached-images', hash + ext)
-    our_url = '/cached-images/' + hash + ext
+    our_url = "/cached-images/#{hash}#{ext}"
 
     if File.exist? path
       redirect_to our_url
       return
     end
 
-    File.open(path, 'wb') do |fp|
-       fp.write(Net::HTTP.get(parsed))
-    end
+    File.binwrite(
+      path,
+      Net::HTTP.get(parsed)
+    )
 
     redirect_to our_url
   end

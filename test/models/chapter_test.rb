@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: chapters
@@ -16,7 +17,7 @@
 #
 #  index_chapters_on_story_id  (story_id)
 #
-require "test_helper"
+require 'test_helper'
 
 class ChapterTest < ActiveSupport::TestCase
   # test "the truth" do

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module StoryIndex
   def self.included(base)
     base.settings index: { number_of_shards: 5, max_result_window: 10_000_000 } do
@@ -31,10 +32,10 @@ module StoryIndex
       [date_published: :desc]
     end
 
-    def allowed_search_fields(access_options = {})
-      [:title, :completion_status, :content_rating, :date_published, :date_updated, :date_modified,
-       :num_comments, :num_views, :num_words, :rating, :short_description, :description_html,
-       :title, :title_keyword, :tags, :author, :author_keyword]
+    def allowed_search_fields(_access_options = {})
+      %i[title completion_status content_rating date_published date_updated date_modified
+         num_comments num_views num_words rating short_description description_html
+         title title_keyword tags author author_keyword]
     end
   end
 

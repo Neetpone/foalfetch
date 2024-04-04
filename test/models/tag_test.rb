@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: tags
@@ -7,7 +8,7 @@
 #  type   :text             not null
 #  old_id :text
 #
-require "test_helper"
+require 'test_helper'
 
 class TagTest < ActiveSupport::TestCase
   # test "the truth" do

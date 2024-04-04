@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 # This whole class is a giant mess but I coded it fast so give me a break.
 class SearchController < ApplicationController
-  ALLOWED_SORT_DIRS = [:asc, :desc]
-  ALLOWED_SORT_FIELDS = [:title, :author, :date_published, :date_updated, :num_words, :rel]
+  ALLOWED_SORT_DIRS = %i[asc desc]
+  ALLOWED_SORT_FIELDS = %i[title author date_published date_updated num_words rel]
 
   before_action :load_tags
 
@@ -74,10 +75,10 @@ class SearchController < ApplicationController
 
   # returns: [included tags, excluded tags]
   def parse_tag_queries
-    tag_searches = (@search_params['tags'] + ',' + @search_params['characters']).split(',').reject &:blank?
+    tag_searches = "#{@search_params['tags']},#{@search_params['characters']}".split(',').reject(&:blank?)
 
     [
-      tag_searches.select { |t| t[0] != '-' },
+      tag_searches.reject { |t| t[0] == '-' },
       tag_searches.select { |t| t[0] == '-' }
                   .map { |t| t[1..] }
     ]
@@ -89,14 +90,14 @@ class SearchController < ApplicationController
 
     # we need to sort on the keyword versions of text fields, to avoid using fielddata.
     sf = case sf
-         when :rel then
-           :_score
-         when :title then
-           :title_keyword
-         when :author then
-           :author_keyword
-         else
-           sf
+           when :rel
+             :_score
+           when :title
+             :title_keyword
+           when :author
+             :author_keyword
+           else
+             sf
          end
 
     {sf => sd}
@@ -111,7 +112,7 @@ class SearchController < ApplicationController
     if params[:scope].present?
       result = $redis.get("search_scope/#{params[:scope]}")
       if result.present?
-        @search_params = JSON.load(result)
+        @search_params = JSON.parse(result)
         @scope_key = params[:scope]
         scope_valid = true
       else
