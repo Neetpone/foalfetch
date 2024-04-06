@@ -4,20 +4,25 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-gem 'kaminari'
-gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.8', '>= 7.0.8.1'
-gem 'redcarpet'
-gem 'slim-rails'
 gem 'sprockets-rails'
 
+# Database stuff
+gem 'pg', '~> 1.1'
 gem 'redis'
 
+# Search
 gem 'elasticsearch-model'
 gem 'fancy_searchable', github: 'Twibooru/fancy_searchable', ref: '40687c9'
 gem 'model-msearch'
 
+# Views
+gem 'kaminari'
+gem 'redcarpet'
+gem 'slim-rails'
+
+# Programs
+gem 'puma', '~> 5.0'
 gem 'sidekiq'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -35,6 +40,7 @@ group :development do
   gem 'annotate'
   gem 'bullet'
   gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
   gem 'web-console'
 end
 

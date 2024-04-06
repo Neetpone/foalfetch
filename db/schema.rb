@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_02_172140) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_06_101101) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,13 +28,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_02_172140) do
     t.datetime "date_joined", null: false
   end
 
+  create_table "blogs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "title", null: false
+    t.text "body", null: false
+  end
+
   create_table "chapters", force: :cascade do |t|
     t.bigint "story_id", null: false
     t.integer "number", default: 1, null: false
     t.datetime "date_published", null: false
     t.datetime "date_modified"
     t.integer "num_views", default: 0, null: false
-    t.integer "num_words", null: false
+    t.integer "num_words"
     t.text "title", null: false
     t.text "body"
     t.index ["story_id"], name: "index_chapters_on_story_id"

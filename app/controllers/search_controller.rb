@@ -38,7 +38,7 @@ class SearchController < ApplicationController
         tag_must_nots.map { |t| { term: { tags: t } } }
       ) if tag_must_nots.any?
 
-      s.add_query(bool: boolses ) if boolses.any?
+      s.add_query(bool: boolses) if boolses.any?
 
       # ratings -> match stories with any of them
       s.add_filter(bool: {

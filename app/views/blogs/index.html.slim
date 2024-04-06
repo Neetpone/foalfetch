@@ -1,0 +1,15 @@
+.news
+  #wrap
+    = render partial: 'layouts/banner'
+    nav.home
+      = link_to 'Home', root_path
+      = link_to 'News', '/news', class: 'current'
+      = link_to 'About', '/about'
+    section.news-list
+      - @blogs.each do |blog|
+        article
+          header
+            h1= blog.title
+          section
+            == blog.body
+          footer Posted by Floorb on #{blog.created_at}.

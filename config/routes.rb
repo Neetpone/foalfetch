@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   get '/images' => 'images#show'
 
   resources :authors, only: [:show]
+
   # using singular-named routes to match FiMFetch/FiMFiction.
   resources :stories, only: [:show], path: :story do
     resources :chapters, only: [:show], path: :chapter
   end
+
+  # Different route name again to match FiMFetch
+  resources :blogs, only: [:index], path: :news
 end
