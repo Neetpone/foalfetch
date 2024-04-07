@@ -11,11 +11,20 @@ class SearchController < ApplicationController
   end
 
   def search
-    unless setup_scope
-      return
+    # unless params[:scope]
+    #   return redirect_to root_path
+    # end
+
+    @scope = SearchScope.new(params)
+
+    # The scope is valid if was successfully used to load the existing search params
+    unless @scope.scope_loaded
+      return redirect_to "/search?scope=#{@scope.scope_key}"
     end
 
-    using_random = @search_params['luck'].present?
+    @search_params = @scope.search_params
+
+    using_random = @search_params[:luck].present?
 
     # This was mainly written this way to match the way FiMFetch's query interface looks, without using JS.
     # I should do a Derpibooru-esque textual search system sometime.
@@ -23,8 +32,8 @@ class SearchController < ApplicationController
       per_page: @per_page,
       page:     @page_num
     ) do |s|
-      s.add_query(match: { title: { query: @search_params['q'], operator: :and } }) if @search_params['q'].present?
-      s.add_query(match: { author: { query: @search_params['author'], operator: :and } }) if @search_params['author'].present?
+      s.add_query(match: { title: { query: @search_params[:q], operator: :and } }) if @search_params[:q].present?
+      s.add_query(match: { author: { query: @search_params[:author], operator: :and } }) if @search_params[:author].present?
 
       # tags -> match any of the included tags, exclude any of the excluded tags
       tag_musts, tag_must_nots = parse_tag_queries
@@ -42,13 +51,13 @@ class SearchController < ApplicationController
 
       # ratings -> match stories with any of them
       s.add_filter(bool: {
-        should: @search_params['ratings'].keys.map { |k| { term: { content_rating: k } } }
-      }) if @search_params['ratings'].present?
+        should: @search_params[:ratings].keys.map { |k| { term: { content_rating: k } } }
+      }) if @search_params[:ratings].present?
 
       # completeness -> match stories with any of them
       s.add_filter(bool: {
-        should: @search_params['state'].keys.map { |k| { term: { completion_status: k } } }
-      }) if @search_params['state'].present?
+        should: @search_params[:state].keys.map { |k| { term: { completion_status: k } } }
+      }) if @search_params[:state].present?
 
       # sort direction
       if using_random
@@ -75,7 +84,7 @@ class SearchController < ApplicationController
 
   # returns: [included tags, excluded tags]
   def parse_tag_queries
-    tag_searches = "#{@search_params['tags']},#{@search_params['characters']}".split(',').reject(&:blank?)
+    tag_searches = "#{@search_params[:tas]},#{@search_params[:characters]}".split(',').reject(&:blank?)
 
     [
       tag_searches.reject { |t| t[0] == '-' },
@@ -85,8 +94,8 @@ class SearchController < ApplicationController
   end
 
   def parse_sort
-    sf = ALLOWED_SORT_FIELDS.detect { |f| @search_params['sf'] == f.to_s } || :date_updated
-    sd = ALLOWED_SORT_DIRS.detect { |d| @search_params['sd'] == d.to_s } || :desc
+    sf = ALLOWED_SORT_FIELDS.detect { |f| @search_params[:sf] == f.to_s } || :date_updated
+    sd = ALLOWED_SORT_DIRS.detect { |d| @search_params[:sd] == d.to_s } || :desc
 
     # we need to sort on the keyword versions of text fields, to avoid using fielddata.
     sf = case sf
@@ -101,41 +110,5 @@ class SearchController < ApplicationController
          end
 
     {sf => sd}
-  end
-
-  # FIXME: This is some of the worst Ruby code I have ever written.
-  def setup_scope
-    @scope_key = Random.hex(16)
-    scope_valid = false
-
-    # scope passed, try to look it up in redis and use the search params from it
-    if params[:scope].present?
-      result = $redis.get("search_scope/#{params[:scope]}")
-      if result.present?
-        @search_params = JSON.parse(result)
-        @scope_key = params[:scope]
-        scope_valid = true
-      else
-        redirect_to '/'
-        return false
-      end
-    else
-      @search_params = params
-    end
-
-    # you can't JSON.dump a Parameters
-    if @search_params.is_a? ActionController::Parameters
-      @search_params = @search_params.permit!.to_h
-    end
-    $redis.setex("search_scope/#{@scope_key}", 3600, JSON.dump(@search_params))
-
-    # if the scope was invalid (no key passed, or invalid key passed), redirect to the results page
-    # with the new key we just generated for the params we had.
-    unless scope_valid
-      redirect_to "/search?scope=#{@scope_key}"
-      return false
-    end
-
-    true
   end
 end

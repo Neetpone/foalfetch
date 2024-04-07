@@ -9,28 +9,28 @@ div.search-adv
       b Rating
       br
       = label_tag "ratings_everyone"
-        = check_box_tag "ratings[everyone]", 1, @search_params.dig('ratings', 'everyone').present?
+        = check_box_tag "ratings[everyone]", 1, @search_params.dig(:ratings, 'everyone').present?
         | Everyone
       = label_tag "ratings_teen"
-        = check_box_tag "ratings[teen]", 1, @search_params.dig('ratings', 'teen').present?
+        = check_box_tag "ratings[teen]", 1, @search_params.dig(:ratings, 'teen').present?
         | Teen
       = label_tag "ratings_mature"
-        = check_box_tag "ratings[mature]", 1, @search_params.dig('ratings', 'mature').present?
+        = check_box_tag "ratings[mature]", 1, @search_params.dig(:ratings, 'mature').present?
         | Mature
     .opts
       b Story State
       br
       = label_tag "state_complete"
-        = check_box_tag "state[complete]", 1, @search_params.dig('state', 'complete').present?
+        = check_box_tag "state[complete]", 1, @search_params.dig(:state, 'complete').present?
         | Complete
       = label_tag "state_incomplete"
-        = check_box_tag "state[incomplete]", 1, @search_params.dig('state', 'incomplete').present?
+        = check_box_tag "state[incomplete]", 1, @search_params.dig(:state, 'incomplete').present?
         | Incomplete
       = label_tag "state_hiatus"
-        = check_box_tag "state[hiatus]", 1, @search_params.dig('state', 'hiatus').present?
+        = check_box_tag "state[hiatus]", 1, @search_params.dig(:state, 'hiatus').present?
         | On Hiatus
       = label_tag "state_cancelled"
-        = check_box_tag "state[cancelled]", 1, @search_params.dig('state', 'cancelled').present?
+        = check_box_tag "state[cancelled]", 1, @search_params.dig(:state, 'cancelled').present?
         | Cancelled
     /.opts
       b Story Age
@@ -73,7 +73,7 @@ div.search-adv
     .opts
       b Author:
       br
-      = text_field_tag :author, @search_params['author']
+      = text_field_tag :author, @search_params[:author]
   /.cols
     .opts
       b FiMFiction Rating:
@@ -104,7 +104,7 @@ div.search-adv
       br
       .js-tag-editor
         .selected-tags
-        = text_field_tag :characters, @search_params['characters']
+        = text_field_tag :characters, @search_params[:characters]
         = select_tag :fancy_tags, options_for_select(@character_tags)
   .cols
     .opts
@@ -112,15 +112,15 @@ div.search-adv
       br
       .js-tag-editor
         .selected-tags
-        = text_field_tag :tags, @search_params['tags']
+        = text_field_tag :tags, @search_params[:tags]
         = select_tag :fancy_characters, options_for_select(@other_tags)
   .cols
     .opts
       b Sort By
       br
       => select_tag :sf, options_for_select({'Query Relevance' => 'rel', 'Title' => 'title', 'Author' => 'author', \
-              'Publish Date' => 'date_published', 'Updated Date' => 'date_updated', 'Word Count' => 'num_words'}, @search_params['sf'])
-      = select_tag :sd, options_for_select({'High to Low' => 'desc', 'Low to High' => 'asc'}, @search_params['sd'])
+              'Publish Date' => 'date_published', 'Updated Date' => 'date_updated', 'Word Count' => 'num_words'}, @search_params[:sf])
+      = select_tag :sd, options_for_select({'High to Low' => 'desc', 'Low to High' => 'asc'}, @search_params[:sd])
   - if show_button
     .buttons
       = submit_tag 'Go Fetch!', name: 'search'

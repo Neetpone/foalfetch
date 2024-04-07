@@ -11,15 +11,15 @@ gem 'sprockets-rails'
 gem 'pg', '~> 1.1'
 gem 'redis'
 
+# Views
+gem 'kaminari' # Must be included before ElasticSearch
+gem 'redcarpet'
+gem 'slim-rails'
+
 # Search
 gem 'elasticsearch-model'
 gem 'fancy_searchable', github: 'Twibooru/fancy_searchable', ref: '40687c9'
 gem 'model-msearch'
-
-# Views
-gem 'kaminari'
-gem 'redcarpet'
-gem 'slim-rails'
 
 # Programs
 gem 'puma', '~> 5.0'

@@ -5,7 +5,7 @@
         a.logo href="/"
           = image_tag '/img/logo_small.png'
         .searchbox
-          = search_field_tag 'q', @search_params['q'], placeholder: 'Search story titles...'
+          = search_field_tag :q, @search_params[:q], placeholder: 'Search story titles...'
         = render partial: 'advanced', locals: { show_button: true }
 
     - @records.each do |rec|
@@ -57,6 +57,6 @@
               ' Last Update
               span= rec.date_updated
     .searchnav
-      = paginate(@records, params: { scope: @scope_key })
+      = paginate(@records, params: { scope: @scope.scope_key })
       br
       span.searchtime Found #{@search.total_count} results.

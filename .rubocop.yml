@@ -57,3 +57,7 @@ Layout/CaseIndentation:
 
 Style/NumericPredicate:
   Enabled: false
+
+# I've always been an "unnecessary this->" guy myself.
+Style/RedundantSelf:
+  Enabled: false
