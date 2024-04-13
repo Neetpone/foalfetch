@@ -22,7 +22,7 @@ class ImagesController < ApplicationController
     if File.exist? path
       content_type = Marcel::MimeType.for Pathname.new(path)
     else
-      content_type, body = fetch_image uri
+      content_type, body = fetch_image parsed
       File.binwrite path, body
     end
 

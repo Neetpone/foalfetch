@@ -119,7 +119,7 @@ div.search-adv
       b Sort By
       br
       => select_tag :sf, options_for_select({'Query Relevance' => 'rel', 'Title' => 'title', 'Author' => 'author', \
-              'Publish Date' => 'date_published', 'Updated Date' => 'date_updated', 'Word Count' => 'num_words'}, @search_params[:sf])
+              'Publish Date' => 'date_published', 'Updated Date' => 'date_updated', 'Word Count' => 'num_words', 'FiMFiction Rating' => 'rating'}, @search_params[:sf])
       = select_tag :sd, options_for_select({'High to Low' => 'desc', 'Low to High' => 'asc'}, @search_params[:sd])
   - if show_button
     .buttons

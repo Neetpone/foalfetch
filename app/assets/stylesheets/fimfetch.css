@@ -530,12 +530,7 @@ a.submit2.cancel:active {
     display: inline-block;
     margin: 0 0 0 5px;
 }
-.fic-cell .popular {
-    display: block;
-    float: left;
-    overflow: hidden;
-    padding: 5px 10px;
-}
+
 .fic-cell .description {
     overflow: hidden;
     border: solid #adc 1px;
@@ -3293,7 +3288,7 @@ body.story,
 .fic-cell header,
 .fic-cell .details,
 .user .name {
-    overflow: auto;
+    overflow: hidden;
 }
 .fic-cell .description a,
 .fic-data .u {

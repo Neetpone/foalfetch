@@ -13,11 +13,14 @@ section.fic-cell
       br
       span.popular
         span.stats
-      - if story.short_description
-        p.description= story.short_description
-      - else
-        div.description
-          == story.description_html
+          - if story.rating
+              span.likes
+                | Rating: #{story.rating}%
+    - if story.short_description
+      p.description= story.short_description
+    - else
+      div.description
+        == story.description_html
   footer
     .rating
       = rating_display(story.rating)
