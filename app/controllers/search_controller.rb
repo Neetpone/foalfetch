@@ -2,7 +2,7 @@
 # This whole class is a giant mess but I coded it fast so give me a break.
 class SearchController < ApplicationController
   ALLOWED_SORT_DIRS = %i[asc desc]
-  ALLOWED_SORT_FIELDS = %i[title author date_published date_updated num_words rel]
+  ALLOWED_SORT_FIELDS = %i[title author date_published date_updated num_words rating rel]
 
   before_action :load_tags
 
@@ -28,13 +28,10 @@ class SearchController < ApplicationController
 
     # This was mainly written this way to match the way FiMFetch's query interface looks, without using JS.
     # I should do a Derpibooru-esque textual search system sometime.
-    @search = Story.fancy_search(
+    @search = StoryFinder.new(@search_params).find(
       per_page: @per_page,
       page:     @page_num
     ) do |s|
-      s.add_query(match: { title: { query: @search_params[:q], operator: :and } }) if @search_params[:q].present?
-      s.add_query(match: { author: { query: @search_params[:author], operator: :and } }) if @search_params[:author].present?
-
       # tags -> match any of the included tags, exclude any of the excluded tags
       tag_musts, tag_must_nots = parse_tag_queries
       boolses = {}
@@ -48,17 +45,6 @@ class SearchController < ApplicationController
       ) if tag_must_nots.any?
 
       s.add_query(bool: boolses) if boolses.any?
-
-      # ratings -> match stories with any of them
-      s.add_filter(bool: {
-        should: @search_params[:ratings].keys.map { |k| { term: { content_rating: k } } }
-      }) if @search_params[:ratings].present?
-
-      # completeness -> match stories with any of them
-      s.add_filter(bool: {
-        should: @search_params[:state].keys.map { |k| { term: { completion_status: k } } }
-      }) if @search_params[:state].present?
-
       # sort direction
       if using_random
         s.add_sort _random: :desc
