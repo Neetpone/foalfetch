@@ -1,0 +1,47 @@
+/ A "card" that displays a story in a list
+- character_tags = story.tags.where(type: 'character')
+- normal_tags = story.tags.where.not(type: 'character')
+section.fic-cell
+  header
+    - if story.cover_image
+      = image_tag "/images?url=#{CGI.escape(story.cover_image)}", alt: 'Cover Image'
+    .details
+      h2= link_to story.title, story_path(story)
+      span.author
+        ' by
+        = link_to story.author.name, author_path(story.author)
+      br
+      span.popular
+        span.stats
+      - if story.short_description
+        p.description= story.short_description
+      - else
+        div.description
+          == story.description_html
+  footer
+    .rating
+      = rating_display(story.rating)
+      = status_display(story.completion_status)
+      - normal_tags.each do |t|
+        = tag_to_html(t)
+    .characters
+      - character_tags.each do |t|
+        = character_display(t)
+    br
+    .ficstats
+      span.chapters
+        = pluralize(story.chapters.count, 'Chapter') + ','
+        '&nbsp;
+      span.words
+        =<> story.num_words
+        ' Words:&nbsp;
+      span.time_est
+        ' Estimated
+        => reading_time(story.num_words)
+        | to read
+    .published
+      ' Published
+      span= story.date_published
+    .updated
+      ' Last Update
+      span= story.date_updated
