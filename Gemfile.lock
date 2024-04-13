@@ -306,6 +306,7 @@ DEPENDENCIES
   elasticsearch-model
   fancy_searchable!
   kaminari
+  marcel
   model-msearch
   pg (~> 1.1)
   puma (~> 5.0)

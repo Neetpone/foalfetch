@@ -17,17 +17,23 @@ class ImagesController < ApplicationController
     hash = Digest::SHA256.hexdigest(url)
     path = Rails.root.join('public', 'cached-images', hash + ext)
     our_url = "/cached-images/#{hash}#{ext}"
+    content_type = nil
 
     if File.exist? path
-      redirect_to our_url
-      return
+      content_type = Marcel::MimeType.for Pathname.new(path)
+    else
+      content_type, body = fetch_image uri
+      File.binwrite path, body
     end
 
-    File.binwrite(
-      path,
-      Net::HTTP.get(parsed)
-    )
+    send_file path, disposition: :inline, content_type: content_type
+  end
 
-    redirect_to our_url
+  private
+
+  def fetch_image(uri)
+    response = Net::HTTP.get_response(uri)
+
+    [response['Content-Type'], response.body]
   end
 end
