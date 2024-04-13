@@ -17,8 +17,7 @@ html
         section
           h4 Stats
           span.stat Page generated in #{render_time}
-          / span.stat FIXME registered users
-          / span.stat FIXME visitors total
+          span.stat #{pluralize(@today_visit_count, 'visitor')} today, #{@total_visit_count} total.
         section
           h4 FoalFetch
           span.stat Frontend designed by DataByte, backend coded by Floorb.

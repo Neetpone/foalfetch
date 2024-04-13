@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_06_101101) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_09_044229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,6 +79,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_06_101101) do
     t.text "name", null: false
     t.text "old_id"
     t.text "type", null: false
+  end
+
+  create_table "visit_counts", force: :cascade do |t|
+    t.date "date", null: false
+    t.integer "count", default: 0, null: false
   end
 
 end
