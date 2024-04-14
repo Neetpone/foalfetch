@@ -1,0 +1,72 @@
+.double {
+    margin-top: 1em;
+}
+.indented {
+    text-indent: 3em;
+}
+.i {
+    font-style: italic;
+}
+.u {
+    text-decoration: underline;
+}
+.b {
+    font-weight: bold;
+}
+.c {
+    text-align: center;
+}
+.s {
+    text-decoration: line-through;
+}
+img.emoticon {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 1em;
+}
+hr {
+    margin-top: 12px;
+}
+blockquote {
+    padding: 5px 10px;
+    margin: 10px;
+    border-left: 5px solid #aaa;
+    background: #eee;
+}
+.authors-note,
+.preface {
+    border-top: 3px double #333;
+    border-bottom: 3px double #333;
+}
+.afterward {
+    border-top: 3px double #333;
+}
+h1 {
+    font-size: 1.9em;
+    margin: 0.8em 0;
+}
+h2 {
+    font-size: 1.3em;
+    margin: 0.5em 0;
+}
+h3 {
+    font-size: 0.625em;
+    margin: 0;
+}
+.authors-note,
+.preface,
+.afterward {
+    background: none;
+    border-left: none;
+    padding: 4px 0;
+}
+.authors-note h1,
+.authors-note h2,
+.preface h1,
+.preface h2,
+.afterward h1,
+.afterward h2 {
+    margin: 0.5em 0;
+    font-size: 1.3em;
+}

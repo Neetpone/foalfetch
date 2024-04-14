@@ -1,0 +1,33 @@
+doctype xml
+html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  head
+    meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+    link rel="stylesheet" href="styles.css"
+    title Cover
+  body
+    table style="width: 100%; height: 100%;"
+      tr
+        td
+          h1= title
+          p
+            b by #{author.name}
+          hr
+          p
+            | Rating: #{content_rating}
+            br
+            | Tags: #{tags.pluck(:name).join(', ')}
+            br
+            | Length: #{num_words}
+          hr
+    table.desc
+      tr style="height: 100%;" valign="top"
+        td
+          p.double= short_description
+          == description_html
+      tr.bottom
+        td
+          hr
+          p
+            | Published #{date_published}
+            br
+            | Last updated #{date_updated}
