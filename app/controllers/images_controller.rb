@@ -26,7 +26,8 @@ class ImagesController < ApplicationController
       File.binwrite path, body
     end
 
-    send_file path, disposition: :inline, content_type: content_type
+    response.headers['Cache-Control'] = 'public'
+    send_file path, disposition: :inline, type: content_type
   end
 
   private
