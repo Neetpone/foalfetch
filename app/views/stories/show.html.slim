@@ -23,7 +23,14 @@ div.story
         .rating
           => rating_display(@story.content_rating)
           => status_display(@story.completion_status)
+          - @normal_tags.each do |t|
+            div class="ftag #{t.name.downcase.gsub(' ', '-')}" title=t.name
+              = t.name
           '&nbsp;
+        .characters
+          - @character_tags.each do |t|
+            = image_tag "/img/characters/#{t.image_name}.png", title: t.name, alt: t.name[0]
+        br
         .ficstats
           span.words> #{@story.num_words} words:
           span.time_est

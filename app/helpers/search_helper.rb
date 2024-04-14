@@ -45,8 +45,6 @@ module SearchHelper
   end
 
   def character_display(t)
-    tag.div class: 'ftag', title: t.name do
-      t.name
-    end
+    tag.img class: 'character', src: "/img/characters/#{t.image_name}.png", title: t.name, alt: t.name[0]
   end
 end
