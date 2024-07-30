@@ -61,7 +61,3 @@ Style/NumericPredicate:
 # I've always been an "unnecessary this->" guy myself.
 Style/RedundantSelf:
   Enabled: false
-
-# Story downloads rely on this.
-Rails/RenderInline:
-  Enabled: false

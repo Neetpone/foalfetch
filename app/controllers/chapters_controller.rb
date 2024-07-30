@@ -6,6 +6,6 @@ class ChaptersController < ApplicationController
     @story = Story.find(params[:story_id])
     @chapter = @story.chapters.find_by(number: params[:id])
 
-    @rendered_html = StoryRenderer.render_chapter(@chapter)
+    @rendered_html = Ebook::EpubGenerator.render_chapter(@chapter)
   end
 end

@@ -1,4 +1,5 @@
 require 'gepub'
+require 'ostruct'
 
 TEMPLATE_DIRECTORY = Rails.root.join('app/lib/ebook')
 
@@ -24,7 +25,7 @@ class Ebook::EpubGenerator
       end
     end
 
-    book
+    book.generate_epub_stream.string
   end
 
   #private
@@ -38,6 +39,25 @@ class Ebook::EpubGenerator
   end
 
   def generate_chapter(chapter)
-    StringIO.new render_template('chapter', chapter)
+    StringIO.new render_template('chapter', OpenStruct.new( chapter: chapter, rendered: self.render_chapter(chapter)))
+  end
+
+  def self.render_chapter(chapter)
+    body = chapter.body
+    body.lstrip!
+    body = body.split "\n"
+
+    # This is fucking bad, this gets rid of the redundant title - this should be fixed upstairs,
+    # in the actual generation of the Markdown.
+    if body.length >= 2 && body[0] == chapter.title && !body[1].empty? && body[1][0] == '='
+      body = body[2..]
+    end
+
+    self.markdown.render body.join("\n")
+  end
+
+  def self.markdown
+    @@markdown ||=
+      Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
 end

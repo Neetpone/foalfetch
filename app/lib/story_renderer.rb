@@ -6,7 +6,7 @@ class StoryRenderer
     @story = story
   end
 
-  def text
+  def txt
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
     separator = '//-------------------------------------------------------//'
 
@@ -31,5 +31,6 @@ class StoryRenderer
   end
 
   def epub
+    Ebook::EpubGenerator.new(@story).generate
   end
 end
