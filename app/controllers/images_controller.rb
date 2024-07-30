@@ -15,8 +15,7 @@ class ImagesController < ApplicationController
 
     ext = File.extname(url)
     hash = Digest::SHA256.hexdigest(url)
-    path = Rails.root.join('public', 'cached-images', hash + ext)
-    our_url = "/cached-images/#{hash}#{ext}"
+    path = Rails.public_path.join('cached-images', hash + ext)
     content_type = nil
 
     if File.exist? path

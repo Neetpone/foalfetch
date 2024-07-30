@@ -70,12 +70,12 @@ class SearchController < ApplicationController
 
   # returns: [included tags, excluded tags]
   def parse_tag_queries
-    tag_searches = "#{@search_params[:tags]},#{@search_params[:characters]}".split(',').reject(&:blank?)
+    tag_searches = "#{@search_params[:tags]},#{@search_params[:characters]}".split(',').compact_blank
 
     [
       tag_searches.reject { |t| t[0] == '-' },
       tag_searches.select { |t| t[0] == '-' }
-                  .map { |t| t[1..] }
+                  .pluck(1..)
     ]
   end
 

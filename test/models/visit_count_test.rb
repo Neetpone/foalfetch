@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: visit_counts
@@ -6,7 +7,7 @@
 #  count :integer          default(0), not null
 #  date  :date             not null
 #
-require "test_helper"
+require 'test_helper'
 
 class VisitCountTest < ActiveSupport::TestCase
   # test "the truth" do
