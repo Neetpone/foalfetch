@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # Routes for compat with FiMFetch
+  get '/story/:id/:ignored0' => 'stories#show'
+  get '/story/:story_id/:ignored0/chapter/:id/:ignored1' => 'chapters#show'
+
   # Different route name again to match FiMFetch
   resources :blogs, only: [:index], path: :news
 end
