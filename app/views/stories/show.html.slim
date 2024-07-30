@@ -40,6 +40,9 @@ div.story
           span.cached
         .dl-links
           span Download:
+          = link_to story_download_path(@story, fmt: 'txt') do
+            img src="/img/icons/txt32.png" alt="text" title="Download condensed text format"
+
       .chapterlist
         h3= pluralize(@chapters.count, 'Chapter') + ':'
         ol

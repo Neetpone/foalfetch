@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # using singular-named routes to match FiMFetch/FiMFiction.
   resources :stories, only: [:show], path: :story do
     resources :chapters, only: [:show], path: :chapter
+    scope module: :stories do
+      resource :download, only: :show
+    end
   end
 
   # Different route name again to match FiMFetch

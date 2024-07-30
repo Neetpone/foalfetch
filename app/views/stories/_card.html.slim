@@ -14,8 +14,7 @@ section.fic-cell
       span.popular
         span.stats
           - if story.rating
-              span.likes
-                | Rating: #{story.rating}%
+            span.likes Rating: #{story.rating}%
     - if story.short_description
       p.description= story.short_description
     - else
