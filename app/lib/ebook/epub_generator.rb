@@ -39,7 +39,7 @@ class Ebook::EpubGenerator
   end
 
   def generate_chapter(chapter)
-    StringIO.new render_template('chapter', OpenStruct.new( chapter: chapter, rendered: self.render_chapter(chapter)))
+    StringIO.new render_template('chapter', OpenStruct.new(chapter: chapter, rendered: EpubGenerator.render_chapter(chapter)))
   end
 
   def self.render_chapter(chapter)
@@ -53,7 +53,7 @@ class Ebook::EpubGenerator
       body = body[2..]
     end
 
-    self.markdown.render body.join("\n")
+    markdown.render body.join("\n")
   end
 
   def self.markdown
