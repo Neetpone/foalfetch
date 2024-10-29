@@ -54,6 +54,8 @@ class Ebook::EpubGenerator
     end
 
     markdown.render body.join("\n")
+  rescue NoMethodError
+    '<b>Something has gone wrong. We don\'t seem to have an archived copy of that chapter.</b>'.html_safe
   end
 
   def self.markdown
