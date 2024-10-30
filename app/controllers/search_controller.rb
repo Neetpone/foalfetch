@@ -18,8 +18,10 @@ class SearchController < ApplicationController
     @scope = SearchScope.new(params)
 
     # The scope is valid if was successfully used to load the existing search params
-    unless @scope.scope_loaded
-      return redirect_to "/search?scope=#{@scope.scope_key}"
+    if @scope.scope_invalid
+      return redirect_to(root_path)
+    elsif !@scope.scope_loaded
+      return redirect_to(search_path(scope: @scope.scope_key))
     end
 
     @search_params = @scope.search_params

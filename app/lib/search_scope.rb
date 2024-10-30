@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class SearchScope
-  attr_reader :search_params, :scope_key, :scope_loaded
+  attr_reader :search_params, :scope_key, :scope_loaded, :scope_invalid
 
   def initialize(params, search_params = nil)
     @scope_key = SecureRandom.hex 16
@@ -24,6 +24,8 @@ class SearchScope
         @scope_key = params[:scope]
         @scope_loaded = true
         self.persist # refresh the expiry
+      else
+        @scope_invalid = true
       end
     else
       @search_params = params.permit!.to_h.symbolize_keys
@@ -33,6 +35,6 @@ class SearchScope
 
   def persist
     # Nice long expiry so nobody's search disappears if they don't touch it for awhile.
-    $redis.setex("search_scope/#{@scope_key}", 1.day.in_seconds, JSON.dump(@search_params))
+    $redis.setex("search_scope/#{@scope_key}", 1.week.in_seconds, JSON.dump(@search_params))
   end
 end
