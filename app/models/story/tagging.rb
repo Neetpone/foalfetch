@@ -3,14 +3,15 @@
 #
 # Table name: story_taggings
 #
-#  story_id :bigint           not null
-#  tag_id   :bigint           not null
+#  story_id :integer          not null
+#  tag_id   :integer          not null
 #
 # Indexes
 #
 #  index_story_taggings_on_story_id  (story_id)
 #  index_story_taggings_on_tag_id    (tag_id)
 #
+
 class Story::Tagging < ApplicationRecord
   belongs_to :story
   belongs_to :tag

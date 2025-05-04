@@ -3,11 +3,12 @@
 #
 # Table name: tags
 #
-#  id     :bigint           not null, primary key
+#  id     :integer          not null, primary key
 #  name   :text             not null
-#  type   :text             not null
 #  old_id :text
+#  type   :text             not null
 #
+
 require 'test_helper'
 
 class TagTest < ActiveSupport::TestCase

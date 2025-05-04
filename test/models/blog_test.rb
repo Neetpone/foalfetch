@@ -3,12 +3,13 @@
 #
 # Table name: blogs
 #
-#  id         :bigint           not null, primary key
-#  body       :text             not null
-#  title      :text             not null
+#  id         :integer          not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  title      :text             not null
+#  body       :text             not null
 #
+
 require 'test_helper'
 
 class BlogTest < ActiveSupport::TestCase

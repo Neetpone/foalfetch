@@ -1,0 +1,108 @@
+
+.news-list {
+    max-width: 800px;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.news-list > h1 {
+    font-size: 32px;
+}
+.news-list .notice {
+    margin: 0 0 15px;
+}
+
+.news-list article {
+    text-align: center;
+    margin: 15px 0px;
+    box-shadow: 0 2px 8px #AAA, 0 0 5px #86d69b;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.news-list section {
+    text-align: left;
+    overflow: hidden;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin: 0 0 3px;
+}
+.news-list section p {
+    margin: 0;
+    padding: 0;
+}
+.news-list section p.double {
+    margin-top: 1.5em;
+}
+.news section.full  {
+    max-height: none!important;
+}
+.news-list article header {
+    text-align: center;
+    background: #dceedc;
+    overflow: auto;
+    padding: 5px 60px 8px;
+    -webkit-border-radius: 2px 2px 0 0;
+    -moz-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+}
+.news-list article h1 {
+    text-transform: capitalize;
+    font-variant: small-caps;
+    font: bold 26px "Times New Roman",serif;
+    display: inline;
+    margin: 0;
+}
+.news-list header .delete {
+    position: relative;
+    right: -55px;
+    float: right;
+    text-align: right;
+    font: 13px normal Arial,sans-serif;
+}
+
+.news-list article footer {
+    text-align: right;
+    font-size: 13px;
+    padding: 3px 5px;
+}
+.news-list .view:before {
+    content: "\25C8 ";
+    font-size: 90%;
+    margin: 0 4px;
+}
+.news-list footer label {
+    margin: 0px 0 5px;
+    display: inline-block;
+}
+
+body.news .pagenav {
+    display: inline-block;
+}
+
+.news-list .hidden {
+    opacity: .5;
+}
+.news-list .hidden header {
+    background-color: #eee;
+}
+.news-list .hidden header h1 {
+    text-decoration: line-through;
+}
+
+#newpost * {
+    font-size: 18px;
+    line-height: 20px;
+}
+#newpost input[type=text] {
+    padding: 3px 5px;
+    width: 100%;
+}
+#newpost section * {
+    box-sizing: content-box;
+}
+#markitup {
+    box-sizing: border-box!important;
+    width: 100%;
+}

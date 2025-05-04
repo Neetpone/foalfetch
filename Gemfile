@@ -15,6 +15,7 @@ gem 'redis'
 gem 'kaminari' # Must be included before ElasticSearch
 gem 'redcarpet'
 gem 'slim-rails'
+gem 'sassc'
 
 # Search
 gem 'elasticsearch-model'
@@ -28,6 +29,8 @@ gem 'sidekiq'
 # Other stuff
 gem 'gepub'
 gem 'marcel'
+gem 'activeadmin'
+gem 'devise'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
