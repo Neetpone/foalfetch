@@ -34,4 +34,23 @@ class Story < ApplicationRecord
   has_many :chapters
   has_many :taggings, validate: false
   has_many :tags, through: :taggings, validate: false
+
+  def self.daily_random
+    if $redis.exists? 'daily_random_id'
+      return Story.find($redis.get('daily_random_id').to_i)
+    end
+
+    seed = Digest::SHA256.hexdigest(Date.today.to_s)
+    id_list = Story.where(
+      'completion_status = \'complete\' AND num_words >= 500 AND rating >= 75',
+    ).pluck(:id).sort
+    return nil if id_list.empty?
+
+    index = seed.hex % id_list.size
+    id = id_list[index]
+
+    $redis.setex('daily_random_id', 3600, id)
+
+    Story.find(id_list[index])
+  end
 end

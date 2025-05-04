@@ -54,3 +54,9 @@ input#show-advanced:checked + div {
 .rating > div, .characters > div {
     margin-right: 3px;
 }
+hr {
+    width: 90%;
+    border-top: 1px solid #000;
+    border-right: 20px solid #FFF;
+    border-left: 20px solid #FFF;
+}

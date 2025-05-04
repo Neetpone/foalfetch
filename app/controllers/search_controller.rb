@@ -8,6 +8,7 @@ class SearchController < ApplicationController
 
   def index
     @search_params = {}
+    @daily_story = Story.daily_random
   end
 
   def search

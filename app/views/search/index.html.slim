@@ -13,3 +13,9 @@
         .buttons
           = submit_tag 'Go Fetch!', name: 'search'
           = submit_tag 'Pick one for me!', name: 'luck'
+    .fotd.sm
+      article.fotd
+        h2 Random Fic of the Day
+        hr
+        section
+          = render partial: 'stories/card', locals: { story: @daily_story }
