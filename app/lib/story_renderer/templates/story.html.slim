@@ -1,0 +1,68 @@
+doctype html
+html
+  head
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    title = story.title
+    style
+      | body {
+          max-width: 50em;
+          padding: 0 1em;
+          margin: 2.0em auto;
+          text-align: justify;
+          line-height: 1.6em;
+          font-family: sans-serif;
+        }
+        img {
+          max-width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          text-align: left;
+        }
+        .authors-note {
+          border-top: 3px double currentColor;
+          border-bottom: 3px double currentColor;
+          padding-left: 0;
+          padding-right: 0;
+          margin-left: 0;
+          margin-right: 0;
+        }
+        nav, article {
+          border-top: 3px double currentColor;
+          margin-top: 2.0em;
+        }
+  body
+    header
+      h1
+        a href="https://foalfetch.net/story/#{story.id}" = story.title
+      h2 by #{story.author.name}
+      p
+        | First published 
+        time datetime="#{story.date_published}" = story.date_published.to_formatted_s(:long_ordinal)
+      img.cover src="#{story.cover_image}"
+      details
+        summary
+          == story.description_html
+    nav
+      h1 Chapters
+      ul
+        - chapters.each do |chapter|
+          li
+            a href="##{chapter.ordinal}" = chapter.title
+    - chapters.each do |chapter|
+      article.chapter
+        header
+          h1
+            a id="#{chapter.ordinal}"
+            = chapter.title
+            p
+              a href="https://foalfetch.net/story/#{story.id}/chapter/#{chapter.number}" View Online
+        .bbcode-center style="text-align:center"
+          p
+            b = story.title
+        .bbcode-center style="text-align:center"
+          p
+            b = chapter.title
+        == chapter.rendered
+        footer
+          p
+            a href="#top" Jump to top 

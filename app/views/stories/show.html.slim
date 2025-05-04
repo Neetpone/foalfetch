@@ -42,6 +42,8 @@ div.story
           span Download:
           = link_to story_download_path(@story, fmt: 'txt') do
             img src="/img/icons/txt32.png" alt="text" title="Download condensed text format"
+          = link_to story_download_path(@story, fmt: 'html') do
+            img src="/img/icons/html32.png" alt="HTML" title="Download Formatted HTML"
           = link_to story_download_path(@story, fmt: 'epub') do
             img src="/img/icons/epub32.png" alt="ePUB" title="Download ePUB format"
 
