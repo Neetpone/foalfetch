@@ -1,0 +1,17 @@
+nav
+  h1 Chapters
+  ul
+    - story.chapters.each do |chapter|
+      li
+        a href="##{chapter.number}" = chapter.title
+  - story.chapters.each do |chapter|
+    hr
+    article.chapter
+      header
+        h1
+          a id="#{chapter.number}"
+          = chapter.title
+      == Ebook::EpubGenerator.render_chapter(chapter)
+      footer
+        p
+          a href="#top" Jump to top

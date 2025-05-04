@@ -3,7 +3,7 @@ require 'ostruct'
 require 'redcarpet/render_strip'
 
 class StoryRenderer
-  TEMPLATE_DIRECTORY = Rails.root.join('app/lib/story_renderer')
+  TEMPLATE_DIRECTORY = Rails.root.join('app/lib/story_renderer/')
 
   def initialize(story)
     @story = story

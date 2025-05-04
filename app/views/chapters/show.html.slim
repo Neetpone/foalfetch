@@ -11,18 +11,20 @@ body.story
           ' by
           = link_to @story.author.name, author_path(@story.author)
         hr
-        h2= @chapter.title
-        span.chapnav.prev
-          - if @chapter.number == 1
-            = link_to 'Load Full Story', story_chapter_path(@story, 0)
-          - else
-            = link_to 'Previous Chapter', story_chapter_path(@story, @chapter.number - 1)
-        span.chapnav.next
-          - if @chapter.number < @story.chapters.count
-            = link_to 'Next Chapter', story_chapter_path(@story, @chapter.number + 1)
-      hr
+        - unless @full_story
+          h2= @chapter.title
+          span.chapnav.prev
+            - if @chapter.number == 1
+              = link_to 'Load Full Story', story_chapter_path(@story, 0)
+            - else
+              = link_to 'Previous Chapter', story_chapter_path(@story, @chapter.number - 1)
+          span.chapnav.next
+            - if @chapter.number < @story.chapters.count
+              = link_to 'Next Chapter', story_chapter_path(@story, @chapter.number + 1)
+          hr
       == @rendered_html
 
-      span.chapnav.bot
-        - if @chapter.number < @story.chapters.count
-          = link_to 'Next Chapter', story_chapter_path(@story, @chapter.number + 1)
+      - unless @full_story
+        span.chapnav.bot
+          - if @chapter.number < @story.chapters.count
+            = link_to 'Next Chapter', story_chapter_path(@story, @chapter.number + 1)

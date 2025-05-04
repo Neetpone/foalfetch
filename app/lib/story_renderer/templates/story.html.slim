@@ -47,22 +47,22 @@ html
       ul
         - chapters.each do |chapter|
           li
-            a href="##{chapter.ordinal}" = chapter.title
-    - chapters.each do |chapter|
-      article.chapter
-        header
-          h1
-            a id="#{chapter.ordinal}"
-            = chapter.title
+            a href="##{chapter.number}" = chapter.title
+      - chapters.each do |chapter|
+        article.chapter
+          header
+            h1
+              a id="#{chapter.ordinal}"
+              = chapter.title
+              p
+                a href="https://foalfetch.net/story/#{story.id}/chapter/#{chapter.number}" View Online
+          .bbcode-center style="text-align:center"
             p
-              a href="https://foalfetch.net/story/#{story.id}/chapter/#{chapter.number}" View Online
-        .bbcode-center style="text-align:center"
-          p
-            b = story.title
-        .bbcode-center style="text-align:center"
-          p
-            b = chapter.title
-        == chapter.rendered
-        footer
-          p
-            a href="#top" Jump to top 
+              b = story.title
+          .bbcode-center style="text-align:center"
+            p
+              b = chapter.title
+          == chapter.rendered
+          footer
+            p
+              a href="#top" Jump to top
