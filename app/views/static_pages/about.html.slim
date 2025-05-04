@@ -2,10 +2,7 @@
 .about
   #wrap
     = render partial: 'layouts/banner'
-    nav.home
-      = link_to 'Home', '/'
-      = link_to 'News', '/news'
-      = link_to 'About', '/about', class: 'current'
+    = render partial: 'layouts/nav'
     article
       section
         h1 About FoalFetch

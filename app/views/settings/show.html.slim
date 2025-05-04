@@ -1,0 +1,15 @@
+- content_for :title, 'Settings'
+.about
+  #wrap
+    = render partial: 'layouts/banner'
+    = render partial: 'layouts/nav'
+    article
+      section
+        h1 Settings 
+        p These settings are stored locally in your browser cookies.
+        = form_tag settings_path, method: 'patch' do
+          .block
+            = label_tag :theme
+            = select_tag :theme, options_for_select([['Classic', 'classic'], ['Scootaloo', 'scootaloo'], ['Random (Default)', 'random']])
+          .block
+            = submit_tag 'Save'

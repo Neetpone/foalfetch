@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about'
   get '/images' => 'images#show'
 
+  resource :settings, only: [:show, :update]
+
   resources :authors, only: [:show]
 
   # using singular-named routes to match FiMFetch/FiMFiction.

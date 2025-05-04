@@ -60,3 +60,20 @@ hr {
     border-right: 20px solid #FFF;
     border-left: 20px solid #FFF;
 }
+
+.block {
+  margin-bottom: 0.5rem;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+}
+
+.logo img {
+    width: 10rem;
+}
+
+.banner img {
+    max-width: 800px !important;
+}

@@ -1,0 +1,22 @@
+nav.home
+  /= link_to "Daily Fictions", "/ficoftheday"
+  / This is garbage but I'll fix it when I have more than 3 links.
+  - if current_page?('/')
+    = link_to "News", "/news"
+    = link_to "About", "/about"
+    = link_to 'Settings', '/settings'
+  - elsif current_page?('/news')
+    = link_to "Home", "/"
+    = link_to "News", "/news", class: 'current'
+    = link_to "About", "/about"
+    = link_to 'Settings', '/settings'
+  - elsif current_page?('/about')
+    = link_to "Home", "/"
+    = link_to "News", "/news"
+    = link_to "About", "/about", class: 'current'
+    = link_to 'Settings', '/settings'
+  - elsif current_page?('/settings')
+    = link_to "Home", "/"
+    = link_to "News", "/news"
+    = link_to "About", "/about"
+    = link_to 'Settings', '/settings', class: 'current'

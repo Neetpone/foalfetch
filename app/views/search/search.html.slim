@@ -3,7 +3,7 @@
     section.search.search-s
       = form_tag '/search', method: :post
         a.logo href="/"
-          = image_tag '/img/logo_small.png'
+          = image_tag "/img/logo_small_#{@theme}.png"
         .searchbox
           = search_field_tag :q, @search_params[:q], placeholder: 'Search story titles...'
         = render partial: 'advanced', locals: { show_button: true }

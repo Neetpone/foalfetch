@@ -1,10 +1,20 @@
 # frozen_string_literal: true
 class ApplicationController < ActionController::Base
+  before_action :set_theme
   before_action :start_timer
   before_action :count_visit
   before_action :setup_pagination_and_tags
 
   private
+
+  def set_theme
+    themes = %w[classic scootaloo]
+    if themes.include? cookies[:theme]
+      @theme = cookies[:theme]
+    else
+      @theme = themes.sample
+    end
+  end
 
   def start_timer
     @start_time = Time.zone.now
