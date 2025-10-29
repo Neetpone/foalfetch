@@ -23,7 +23,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
+Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 
 # Ensures that the test database schema matches the current schema file.
 # If there are pending migrations it will invoke `db:test:prepare` to
@@ -69,4 +69,14 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # FactoryBot
+  config.include FactoryBot::Syntax::Methods
+
+  # rails-controller-testing helpers for controller specs
+  if defined?(Rails::Controller::Testing)
+    config.include Rails::Controller::Testing::TemplateAssertions, type: :controller
+    config.include Rails::Controller::Testing::TestProcess, type: :controller
+    config.include Rails::Controller::Testing::Integration, type: :controller
+  end
 end

@@ -9,7 +9,7 @@ class Stories::DownloadsController < ApplicationController
   def show
     @story = Story.find(params[:story_id])
 
-    format = MIME_TYPES.keys.detect { |fmt| fmt.to_s == params[:fmt] } || :text
+    format = MIME_TYPES.keys.detect { |fmt| fmt.to_s == params[:fmt] } || :txt
     renderer = StoryRenderer.new @story
 
     send_data renderer.send(format), type: MIME_TYPES[format], disposition: :attachment, filename: "#{@story.title}.#{format}"
