@@ -18,18 +18,18 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         options: >-
-          --health-cmd "pg_isready -U postgres" \
-          --health-interval 10s \
-          --health-timeout 5s \
+          --health-cmd "pg_isready -U postgres" 
+          --health-interval 10s 
+          --health-timeout 5s 
           --health-retries 5
 
       redis:
         image: redis:7
         ports: ["6379:6379"]
         options: >-
-          --health-cmd "redis-cli ping" \
-          --health-interval 10s \
-          --health-timeout 5s \
+          --health-cmd "redis-cli ping" 
+          --health-interval 10s 
+          --health-timeout 5s 
           --health-retries 5
 
       elasticsearch:
@@ -40,10 +40,10 @@ jobs:
           ES_JAVA_OPTS: "-Xms512m -Xmx512m"
         ports: ["9200:9200"]
         options: >-
-          --health-cmd="curl -fsSL http://localhost:9200/_cluster/health || exit 1" \
-          --health-interval=10s \
-          --health-timeout=5s \
-          --health-retries=12
+          --health-cmd "curl -fsSL http://localhost:9200/_cluster/health || exit 1"
+          --health-interval 10s 
+          --health-timeout 5s 
+          --health-retries 12
 
     env:
       RAILS_ENV: test
