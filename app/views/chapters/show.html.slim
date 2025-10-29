@@ -1,8 +1,6 @@
 body.story
   #wrap
-    header.banner.main
-      = link_to '/'
-        = image_tag '/img/banner.png'
+    = render partial: 'layouts/banner'
     article#story.fic-data.hyphenate
       header
         h1
