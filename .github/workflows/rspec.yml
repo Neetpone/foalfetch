@@ -1,0 +1,79 @@
+name: RSpec
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        ports: ["5432:5432"]
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd "pg_isready -U postgres" \
+          --health-interval 10s \
+          --health-timeout 5s \
+          --health-retries 5
+
+      redis:
+        image: redis:7
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping" \
+          --health-interval 10s \
+          --health-timeout 5s \
+          --health-retries 5
+
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.17.13
+        env:
+          discovery.type: single-node
+          xpack.security.enabled: "false"
+          ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+        ports: ["9200:9200"]
+        options: >-
+          --health-cmd="curl -fsSL http://localhost:9200/_cluster/health || exit 1" \
+          --health-interval=10s \
+          --health-timeout=5s \
+          --health-retries=12
+
+    env:
+      RAILS_ENV: test
+      REDIS_HOST: 127.0.0.1
+      DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/foalfetch_test
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.4.3
+          bundler-cache: true
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpq-dev
+
+      - name: Prepare database
+        run: |
+          psql -h 127.0.0.1 -U postgres -c 'CREATE DATABASE foalfetch_test;' || true
+          bundle exec rails db:schema:load --trace
+        env:
+          PGPASSWORD: postgres
+
+      - name: Run RSpec
+        run: |
+          bundle exec rspec --format progress
+
+
